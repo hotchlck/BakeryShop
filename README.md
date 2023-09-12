@@ -34,7 +34,8 @@
       ...
      ]
      ```
-   - Membuat direktori dengan nama templates dan membuat file dengan nama main.html di dalam direktori tersebut. File main.html berisi code html 
+   - Membuat direktori dengan nama templates dan membuat file dengan nama main.html di dalam direktori tersebut. File main.html 
+     berisi code html 
      yang akan menjadi tampilan utama halaman web aplikasi.
 3. Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
    - Membuka file urls.py dalam direktori main dan mengisinya dengan
