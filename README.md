@@ -1,1 +1,2 @@
-BakeryShop Inventory
+# BakeryShop - Fresh Baked Goods Everyday!
+[BakeryShop App]()
