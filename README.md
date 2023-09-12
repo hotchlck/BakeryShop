@@ -8,13 +8,16 @@
    - Membuat Virtual Environment baru dengan menjalankan command  
      ``` python -m venv env ``` . Lalu mengaktifkannya dengan command
      ```env\Scripts\activate.bat```.
-   - Membuat file dengan nama requirements.txt di direktori yang sama dan menambahkan        dependencies yang perlu di install di Visual Studio Code:
-     ```django
+   - Membuat file dengan nama requirements.txt di direktori yang sama dan menambahkan dependencies yang perlu di install di Visual Studio Code:
+     ```
+        django
         gunicorn
         whitenoise
         psycopg2-binary
         requests
-        urllib3```
+        urllib3
+     ```
+    
      
    - 
      
@@ -39,8 +42,8 @@ Ketiganya merupakan arsitektur yang digunakan untuk merancang dan mengembangkan 
   - Model : Komponen utama dari arsitektur yang mengelola data dan logika aplikasi.
   - View  : Menampilkan data dari model dan menyediakan berbagai representasi data pada 
             User Interface.
-  - Template : Bertanggung jawab penuh terhadap User Interface. Mengelola komponen - 
-               komponen statis dari halaman web, termasuk HTML yang dilihat oleh user.
+  - Template : Bertanggung jawab penuh terhadap User Interface. Mengelola komponen - komponen statis dari halaman web, termasuk HTML yang dilihat 
+               oleh user.
 - MVVM
   - Model : Komponen utama dari arsitektur yang mengelola data dan logika aplikasi.
   - View  : Menampilkan data dari model dan menyediakan berbagai representasi data pada 
