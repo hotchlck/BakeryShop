@@ -2,6 +2,8 @@
 [BakeryShop App](https://bakeryshop.adaptable.app/main/)
 
 ## Request Client 
+![baganClientRequest](https://github.com/hotchlck/BakeryShop/assets/126342746/c746edbf-7baa-4e7b-8b7f-8ceb6b1eeb5d)
+
 
 ## Virtual Environment
 Virtual Environment merupakan tools untuk membuat lingkungan python virtual yang terisolasi. 
