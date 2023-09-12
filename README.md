@@ -5,9 +5,19 @@
 1. Membuat sebuah proyek Django baru
    - Membuat direktori dengan nama BakeryShop dan membuka command prompt di direktori 
      tersebut.
-   - membuat Virtual Environment baru dengan menjalankan command  
-      ``` python -m venv env ``` . Lalu mengaktifkannya dengan command  ``` 
-     env\Scripts\activate.bat```
+   - Membuat Virtual Environment baru dengan menjalankan command  
+     ``` python -m venv env ``` . Lalu mengaktifkannya dengan command
+     ```env\Scripts\activate.bat```.
+   - Membuat file dengan nama requirements.txt di direktori yang sama dan menambahkan        dependencies yang perlu di install di Visual Studio Code:
+     ```django
+        gunicorn
+        whitenoise
+        psycopg2-binary
+        requests
+        urllib3```
+     
+   - 
+     
 
 ## Request Client 
 ![baganClientRequest](https://github.com/hotchlck/BakeryShop/assets/126342746/c746edbf-7baa-4e7b-8b7f-8ceb6b1eeb5d)
