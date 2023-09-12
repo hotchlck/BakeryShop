@@ -17,8 +17,7 @@
         requests
         urllib3
      ```
-    
-     
+    Setelah itu Install dependencies dengan command ```pip install -r requirements.txt```. 
    - 
      
 
@@ -42,8 +41,8 @@ Ketiganya merupakan arsitektur yang digunakan untuk merancang dan mengembangkan 
   - Model : Komponen utama dari arsitektur yang mengelola data dan logika aplikasi.
   - View  : Menampilkan data dari model dan menyediakan berbagai representasi data pada 
             User Interface.
-  - Template : Bertanggung jawab penuh terhadap User Interface. Mengelola komponen - komponen statis dari halaman web, termasuk HTML yang dilihat 
-               oleh user.
+  - Template : Bertanggung jawab penuh terhadap User Interface. Mengelola komponen - komponen statis dari halaman web,
+               termasuk HTML yang dilihat oleh user.
 - MVVM
   - Model : Komponen utama dari arsitektur yang mengelola data dan logika aplikasi.
   - View  : Menampilkan data dari model dan menyediakan berbagai representasi data pada 
