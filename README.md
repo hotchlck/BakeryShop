@@ -1,9 +1,16 @@
 # BakeryShop - Fresh Baked Goods Everyday!
 [BakeryShop App](https://bakeryshop.adaptable.app/main/)
 
+## Pembuatan App BakeryShop
+1. Membuat sebuah proyek Django baru
+   - Membuat direktori dengan nama BakeryShop dan membuka command prompt di direktori 
+     tersebut.
+   - membuat Virtual Environment baru dengan menjalankan command  
+      ``` python -m venv env ``` . Lalu mengaktifkannya dengan command  ``` 
+     env\Scripts\activate.bat```
+
 ## Request Client 
 ![baganClientRequest](https://github.com/hotchlck/BakeryShop/assets/126342746/c746edbf-7baa-4e7b-8b7f-8ceb6b1eeb5d)
-
 
 ## Virtual Environment
 Virtual Environment merupakan tools untuk membuat lingkungan python virtual yang terisolasi. 
