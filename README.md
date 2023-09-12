@@ -69,7 +69,7 @@
       type = models.CharField(max_length = 255)
       date_added =  models.DateField(auto_now_add=True, name="date_added")
       ```
-   - Menjalankan command ```python manage.py makemigrations``` dan  ```ppython manage.py migrate``` untuk melakukan migrasi 
+    - Menjalankan command ```python manage.py makemigrations``` dan  ```ppython manage.py migrate``` untuk melakukan migrasi 
      agar perubahan model dapat dilacak Django.
 5. Memodifikasi file views.py.
    - Menambahkan import ```from django.shortcuts import render```.
