@@ -194,28 +194,29 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
    from main.models import item
    ```
    - Menampilkan data dalam bentuk HTML. 
-    - Membuat fungsi ```create_product``` dalam berkas ```views.py``` dengan parameter ```request``` yang berisi kumpulan kode untuk membuat formulir yang dapat menyimpan data yang di-submit melalui form. 
-    ```
-    def create_product(request):
-      form = ProductForm(request.POST or None)
+     - Membuat fungsi ```create_product``` dalam berkas ```views.py``` dengan parameter ```request``` yang berisi kumpulan kode untuk membuat formulir yang dapat menyimpan data yang di-submit melalui form. 
+       ```
+       def create_product(request):
+       form = ProductForm(request.POST or None)
 
-      if form.is_valid() and request.method == "POST":
+       if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('main:show_main'))
 
-      context = {'form': form}
-      return render(request, "create_product.html", context)
-    ```
-    - Mengubah fungsi ```show_main``` dalam berkas ```views.py``` . Fungsi ini untuk menampilkan data dalam bentuk HTML.
-    def show_main(request):
-      items = item.objects.all()
-      context = {
+       context = {'form': form}
+       return render(request, "create_product.html", context)
+       ```
+     - Mengubah fungsi ```show_main``` dalam berkas ```views.py``` . Fungsi ini untuk menampilkan data dalam bentuk HTML.
+       ```
+       def show_main(request):
+         items = item.objects.all()
+         context = {
           'name': 'Salma Kurnia Dewi',
           'class': 'PBP B',
           'items' : items
-      }
-      return render(request, "main.html", context)
-      ```
+         }
+         return render(request, "main.html", context)
+       ```
      - Menambahkan import pada berkas ```urls.py``` yang terdapat di direktori main.
      ```from main.views import show_main, create_product```
      - Menambahkan path url dalam ```urlpatterns``` di berkas yang sama. 
