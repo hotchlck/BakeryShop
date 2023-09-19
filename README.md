@@ -1,4 +1,4 @@
-<h1>BakeryShop - Fresh Baked Goods Everyday!</h1>
+# BakeryShop - Fresh Baked Goods Everyday!
 
 # TUGAS 2
 ## Pembuatan App BakeryShop
