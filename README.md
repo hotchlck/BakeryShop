@@ -158,9 +158,9 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
    ```
   - Mengubah kode berkas ```main.html``` yang terletak di subdirektori ```templates``` yang juga terletak dalam direktori ```main```. 
   ```
-  {% extends 'base.html' %}
+   {% extends 'base.html' %}
 
-  {% block content %}
+   {% block content %}
       <h1>Shopping List Page</h1>
 
       <h5>Name:</h5>
@@ -170,7 +170,6 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
       <p>{{class}}</p>
   {% endblock content %}
   ```
-
 2. Membuat Form Input Data 
    - Membuat berkas baru dengan nama ```forms.py``` di dalam direktori ```main``` dan menambahkan beberapa kode berikut : 
    ```
