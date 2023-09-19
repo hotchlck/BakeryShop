@@ -156,7 +156,7 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
     }
    ]
    ```
-  - Mengubah kode berkas ```main.html``` yang terletak di subdirektori ```templates``` yang juga terletak dalam direktori ```main```. 
+   - Mengubah kode berkas ```main.html``` yang terletak di subdirektori ```templates``` yang juga terletak dalam direktori ```main```. 
   ```
    {% extends 'base.html' %}
 
