@@ -156,7 +156,7 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
     }
    ]
    ```
-- Mengubah kode berkas ```main.html``` yang terletak di subdirektori ```templates``` yang juga terletak dalam direktori ```main```. 
+  - Mengubah kode berkas ```main.html``` yang terletak di subdirektori ```templates``` yang juga terletak dalam direktori ```main```. 
   ```
    {% extends 'base.html' %}
 
@@ -317,15 +317,16 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
    - Menjalankan proyek Django dengan perintah :
    ```python manage.py runserver```
    - Membuka aplikasi postman dan membuat request baru dengan method ```GET``` dan memasukkan URL fungsi ```views```.
-   -- URL ```http://localhost:8000/```(HTML)
-      ![Alt text](<Screenshot 2023-09-18 151003.png>)
-   -- URL ```http://localhost:8000/xml``` dan ```http://localhost:8000/xml/1```
-      ![Alt text](<Screenshot 2023-09-18 151039.png>)
-      ![Alt text](<Screenshot 2023-09-18 151137.png>)
-   -- URL ```http://localhost:8000/json``` dan ```http://localhost:8000/json/1```
-      ![Alt text](<Screenshot 2023-09-18 151058.png>)
-      ![Alt text](<Screenshot 2023-09-18 151120.png>)
+     - URL ```http://localhost:8000/```(HTML)
+      ![Screenshot 2023-09-18 151003](https://github.com/hotchlck/BakeryShop/assets/126342746/3276793a-8eca-4d81-bf5f-772e81df6a09)
+     - URL ```http://localhost:8000/xml``` dan ```http://localhost:8000/xml/1```
+      ![Screenshot 2023-09-18 151039](https://github.com/hotchlck/BakeryShop/assets/126342746/f586821b-2c65-424f-9059-8b5db44bda31)
+      ![Screenshot 2023-09-18 151137](https://github.com/hotchlck/BakeryShop/assets/126342746/f51da316-479d-4ef7-85b4-baed8d9a0a12)
 
-## Perbedaan form``` POST ``` dan form ```GET ``` pada Django
-## Perbedaan antara XML, JSON, dan HTML dalam pengiriman data
+    - URL ```http://localhost:8000/json``` dan ```http://localhost:8000/json/1```
+      ![Screenshot 2023-09-18 151058](https://github.com/hotchlck/BakeryShop/assets/126342746/acbf04b9-8005-4fe5-ba40-4999947bb28e)
+      ![Screenshot 2023-09-18 151120](https://github.com/hotchlck/BakeryShop/assets/126342746/b095f7b0-ebf4-406b-8ffb-1157b3d6552d)
+
+   
+
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern
