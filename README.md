@@ -143,20 +143,20 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
       {% block content %}
       {% endblock content %}
     </body>
-</html>
+    </html>
    ```
    - Membuka berkas ```settings.py``` yang terletak di subdirektori ```BakeryShop``` dan mengganti kode ```TEMPLATES``` agar base.html terdeteksi sebagai template
    ```
-  TEMPLATES = [
+    TEMPLATES = [
       {
           'BACKEND': 'django.template.backends.django.DjangoTemplates',
           'DIRS': [BASE_DIR / 'templates'], # Tambahkan kode ini
           'APP_DIRS': True,
           ...
     }
-  ]
+   ]
    ```
-  - Mengubah kode berkas ```main.html``` yang terletak di subdirektori ```templates``` yang juga terletak dalam direktori ```main```. 
+- Mengubah kode berkas ```main.html``` yang terletak di subdirektori ```templates``` yang juga terletak dalam direktori ```main```. 
   ```
    {% extends 'base.html' %}
 
@@ -194,7 +194,7 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
    from main.models import item
    ```
    - Menampilkan data dalam bentuk HTML. 
-    -- Membuat fungsi ```create_product``` dalam berkas ```views.py``` dengan parameter ```request``` yang berisi kumpulan kode untuk membuat formulir yang dapat menyimpan data yang di-submit melalui form. 
+    - Membuat fungsi ```create_product``` dalam berkas ```views.py``` dengan parameter ```request``` yang berisi kumpulan kode untuk membuat formulir yang dapat menyimpan data yang di-submit melalui form. 
     ```
     def create_product(request):
       form = ProductForm(request.POST or None)
@@ -206,7 +206,7 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
       context = {'form': form}
       return render(request, "create_product.html", context)
     ```
-    -- Mengubah fungsi ```show_main``` dalam berkas ```views.py``` . Fungsi ini untuk menampilkan data dalam bentuk HTML.
+    - Mengubah fungsi ```show_main``` dalam berkas ```views.py``` . Fungsi ini untuk menampilkan data dalam bentuk HTML.
     def show_main(request):
       items = item.objects.all()
       context = {
@@ -216,11 +216,11 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
       }
       return render(request, "main.html", context)
       ```
-     -- Menambahkan import pada berkas ```urls.py``` yang terdapat di direktori main.
+     - Menambahkan import pada berkas ```urls.py``` yang terdapat di direktori main.
      ```from main.views import show_main, create_product```
-     -- Menambahkan path url dalam ```urlpatterns``` di berkas yang sama. 
+     - Menambahkan path url dalam ```urlpatterns``` di berkas yang sama. 
      ```path('create-product', create_product, name='create_product'),```
-     -- Membuat berkas berisi kode dengan nama ```create_product.html``` pada folder ```templates``` yang terletak di direktori ```main``` . Isi berkas tersebut: 
+     - Membuat berkas berisi kode dengan nama ```create_product.html``` pada folder ```templates``` yang terletak di direktori ```main``` . Isi berkas tersebut: 
      ```
      {% extends 'base.html' %} 
 
@@ -242,7 +242,7 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
 
      {% endblock %}
      ```
-     -- Menambahkan kode pada berkas ```main.html``` yang terletak di folder ```templates``` di direktori ```main```.
+     - Menambahkan kode pada berkas ```main.html``` yang terletak di folder ```templates``` di direktori ```main```.
      ```
      <table>
         <tr>
