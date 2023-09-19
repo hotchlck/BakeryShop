@@ -338,8 +338,9 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
 
 ## Perbedaan XML, JSON, dan HTML dalam Pengiriman Data
 
-## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
 
+## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+   JSON sering digunakan dalam pertukaran data antar aplikasi karena mudah ditulis dan mudah dimengerti. JSON menggunakan          format dengan key-value pairs (dictionary) dan array. Tidak seperti XML, penulisan sintaks JSON lebih ringan dan tidak          membutuhkan tag khusus, atribut, atau skema tertentu sehingga mudah untuk diterjemahkan dan dibuat oleh komputer.
 
      
 
@@ -347,4 +348,3 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
 
    
 
-## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern
