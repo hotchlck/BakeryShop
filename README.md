@@ -1,6 +1,7 @@
 <h1>BakeryShop - Fresh Baked Goods Everyday!</h1>
 
-# Pembuatan App BakeryShop (TUGAS 2)
+<h2>TUGAS 2</h2> 
+<h3>Pembuatan App BakeryShop</h3>
 1. Membuat sebuah proyek Django baru
    - Membuat direktori dengan nama BakeryShop dan membuka command prompt di direktori 
      tersebut.
@@ -88,16 +89,16 @@
    - Melakukan add, commit, dan push untuk memperbarui repositori Github dengan perubahan yang dilakukan pada direktori lokal.
    - Melakukan deployment project melalui adaptable sesuai ketentuan tutorial.
 
-## Request Client 
+<h3>Request Client</h3> 
 ![baganClientRequest](https://github.com/hotchlck/BakeryShop/assets/126342746/c746edbf-7baa-4e7b-8b7f-8ceb6b1eeb5d)
 
-## Virtual Environment
+<h3>Virtual Environment</h3>
 Virtual Environment merupakan tools untuk membuat lingkungan python virtual yang terisolasi. 
 Virtual Environment membantu kita ketika membutuhkan dependencies yang berbeda - beda (contohnya python version) antara setiap proyek yang berjalan pada satu sistem operasi yang sama sehingga dapat mencegah konflik dan masalah yang disebabkan oleh perbedaan python version.
 Aplikasi web berbasis Django tetap bisa dibuat tanpa Virtual Environment. 
 Namun, terdapat risiko terjadinya konflik dependencies dengan proyek - proyek lain di sistem yang sama. 
 
-## Mengenai MVC, MVT, dan MVVM
+<h3>Mengenai MVC, MVT, dan MVVM</h3>
 Ketiganya merupakan arsitektur yang digunakan untuk merancang dan mengembangkan aplikasi berbasis web. Arsitektur tersebut digunakan untuk memisahkan tanggung jawab antara visualisasi, pemrosesan, dan manajemen data untuk aplikasi User interface. 
 - MVC
   - Model : Komponen utama dari arsitektur yang mengelola data dan logika aplikasi.
@@ -119,8 +120,8 @@ Ketiganya merupakan arsitektur yang digunakan untuk merancang dan mengembangkan 
 
 Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mirip dengan MVC namun sering digunakan dalam framework web Django. Sementara itu, MVVM memisahkan logika domain dan tampilan aplikasi. 
 
-# TUGAS 3
-## Implementasi Checklist 
+<h2>TUGAS 3</h2>
+<h3>Implementasi Checklist </h3>
 1. Mengatur routing dan membuat skeleton sebagai kerangka views
    - Mengubah berkas ```urls.py``` yang terletak pada subdirektori BakeryShop dan mengubah path pada url patterns dari 
      ```main/``` menjadi ''. 
@@ -331,14 +332,21 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
       ![Screenshot 2023-09-18 151058](https://github.com/hotchlck/BakeryShop/assets/126342746/acbf04b9-8005-4fe5-ba40-4999947bb28e)
       ![Screenshot 2023-09-18 151120](https://github.com/hotchlck/BakeryShop/assets/126342746/b095f7b0-ebf4-406b-8ffb-1157b3d6552d)
 
-## Perbedaan form POST dan form GET dalam Django
+<h3>Perbedaan form POST dan form GET dalam Django</h3> 
    - Metode ```POST``` digunakan untuk mengirim data ke server agar dapat membuat atau menulis ulang data. Data yang dikirimkan      ke server disimpan dalam ```HTTP```  request body sehingga data tidak ditampilkan di URL. Metode ini biasanya digunakan         untuk mengirimkan informasi yang sensitif. POST request tidak dapat di-cache dan tidak dapat di-bookmark. POST request          tidak membatasi panjang data sehingga cocok digunakan untuk data yang berukuran besar.
    - Metode ```GET``` digunakan untuk mengirim request pada server untuk mendapatkan data tertentu. Dengan menggunakan metode        ini, kita hanya bisa menerima data dari server dan tidak bisa mengubah-nya. Parameter request dari metode ```GET``` akan        ditampilkan di URL sehingga tidak dapat digunakan untuk mengolah data yang sensitif. ```GET``` request dapat di-cache dan       dapat di-bookmark. ```GET``` request memiliki batasan panjang data.
 
-## Perbedaan XML, JSON, dan HTML dalam Pengiriman Data
-
-
-## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+<h3>Perbedaan XML, JSON, dan HTML dalam Pengiriman Data</h3>
+   - XML 
+     Bahasa markup dan format berkas yang digunakan untuk menyimpan, mengirimkan, dan mengkonstruksi data, bukan untuk               menampilkan data. XML memiliki beberapa peraturan untuk mengkodekan dokumen dalam format yang dapat dibaca oleh mesin dan       manusia. Format XML lebih sulit dibaca jika dibandingkan dengan JSON. 
+   - JSON
+     JSON memiliki format pertukaran data dengan teks yang mudah dibaca oleh manusia untuk menyimpan dan mengirimkan data yang       terdiri dari key-value pairs (dictionary) dan array. Jika dibandingkan dengan XML, format JSON yang berbasis pada               JavaSCript lebih mudah dibaca oleh komputer karena penulisannya yang lebih simpel. 
+     - HTML
+     Bahasa markup yang digunakan untuk menyusun teks, gambar, dan materi lainnya yang akan ditampilkan oleh halaman web.
+     
+     Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternatif untuk menyimpan dan mentransfer data,         sementara HTML digunakan untuk menyusun bagaimana data harus ditampilkan di perangkat pengguna.
+     
+<h3>Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?</h3>
    JSON sering digunakan dalam pertukaran data antar aplikasi karena mudah ditulis dan mudah dimengerti. JSON menggunakan          format dengan key-value pairs (dictionary) dan array. Tidak seperti XML, penulisan sintaks JSON lebih ringan dan tidak          membutuhkan tag khusus, atribut, atau skema tertentu sehingga mudah untuk diterjemahkan dan dibuat oleh komputer.
 
      
