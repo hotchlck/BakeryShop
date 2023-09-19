@@ -337,13 +337,13 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
    - Metode ```GET``` digunakan untuk mengirim request pada server untuk mendapatkan data tertentu. Dengan menggunakan metode        ini, kita hanya bisa menerima data dari server dan tidak bisa mengubah-nya. Parameter request dari metode ```GET``` akan        ditampilkan di URL sehingga tidak dapat digunakan untuk mengolah data yang sensitif. ```GET``` request dapat di-cache dan       dapat di-bookmark. ```GET``` request memiliki batasan panjang data.
 
 ## Perbedaan XML, JSON, dan HTML dalam Pengiriman Data
-   - XML
-     Bahasa markup dan format berkas yang digunakan untuk menyimpan, mengirimkan, dan mengkonstruksi data, bukan untuk               menampilkan data. XML memiliki beberapa peraturan untuk mengkodekan dokumen dalam format yang dapat dibaca oleh mesin dan       manusia. Format XML lebih sulit dibaca jika dibandingkan dengan JSON. 
+   - XML 
+     - Bahasa markup dan format berkas yang digunakan untuk menyimpan, mengirimkan, dan mengkonstruksi data, bukan untuk               menampilkan data. XML memiliki beberapa peraturan untuk mengkodekan dokumen dalam format yang dapat dibaca oleh mesin           dan manusia. Format XML lebih sulit dibaca jika dibandingkan dengan JSON. 
    - JSON
-     JSON memiliki format pertukaran data dengan teks yang mudah dibaca oleh manusia untuk menyimpan dan mengirimkan data yang       terdiri dari key-value pairs (dictionary) dan array. Jika dibandingkan dengan XML, format JSON yang berbasis pada               JavaSCript lebih mudah dibaca oleh komputer karena penulisannya yang lebih simpel. 
+     - JSON memiliki format pertukaran data dengan teks yang mudah dibaca oleh manusia untuk menyimpan dan mengirimkan data             yang terdiri dari key-value pairs (dictionary) dan array. Jika dibandingkan dengan XML, format JSON yang berbasis pada          JavaSCript lebih mudah dibaca oleh komputer karena penulisannya yang lebih simpel. 
    - HTML
-     Bahasa markup yang digunakan untuk menyusun teks, gambar, dan materi lainnya yang akan ditampilkan oleh halaman web.
-     Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternatif untuk menyimpan dan mentransfer data,         sementara HTML digunakan untuk menyusun bagaimana data harus ditampilkan di perangkat pengguna.
+     - Bahasa markup yang digunakan untuk menyusun teks, gambar, dan materi lainnya yang akan ditampilkan oleh halaman web.
+       Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternatif untuk menyimpan dan mentransfer data,         sementara HTML digunakan untuk menyusun bagaimana data harus ditampilkan di perangkat pengguna.
      
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
    JSON sering digunakan dalam pertukaran data antar aplikasi karena mudah ditulis dan mudah dimengerti. JSON menggunakan          format dengan key-value pairs (dictionary) dan array. Tidak seperti XML, penulisan sintaks JSON lebih ringan dan tidak          membutuhkan tag khusus, atribut, atau skema tertentu sehingga mudah untuk diterjemahkan dan dibuat oleh komputer.
