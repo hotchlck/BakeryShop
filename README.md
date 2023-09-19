@@ -1,7 +1,7 @@
-# BakeryShop - Fresh Baked Goods Everyday!
+<h1>BakeryShop - Fresh Baked Goods Everyday!</h1>
 [BakeryShop App](https://bakeryshop.adaptable.app/main/)
 
-## Pembuatan App BakeryShop
+# Pembuatan App BakeryShop (TUGAS 2)
 1. Membuat sebuah proyek Django baru
    - Membuat direktori dengan nama BakeryShop dan membuka command prompt di direktori 
      tersebut.
@@ -120,3 +120,213 @@ Ketiganya merupakan arsitektur yang digunakan untuk merancang dan mengembangkan 
 
 Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mirip dengan MVC namun sering digunakan dalam framework web Django. Sementara itu, MVVM memisahkan logika domain dan tampilan aplikasi. 
 
+# TUGAS 3
+## Implementasi Checklist 
+1. Mengatur routing dan membuat skeleton sebagai kerangka views
+   - Mengubah berkas ```urls.py``` yang terletak pada subdirektori BakeryShop dan mengubah path pada url patterns dari ```main/``` menjadi ''. 
+   ```path('', include('main.urls')),```
+   - Membuat folder ```templates``` pada direktori utama dan membuat berkas HTML dengan nama ```base.html``` dan mengisi berkas tersebut dengan kerangka umum untuk halaman web .
+   ```
+   {% load static %}
+   <!DOCTYPE html>
+   <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+        />
+      {% block meta %}
+      {% endblock meta %}
+    </head>
+    <body>
+      {% block content %}
+      {% endblock content %}
+    </body>
+</html>
+   ```
+   - Membuka berkas ```settings.py``` yang terletak di subdirektori ```BakeryShop``` dan mengganti kode ```TEMPLATES``` agar base.html terdeteksi sebagai template
+   ```
+  TEMPLATES = [
+      {
+          'BACKEND': 'django.template.backends.django.DjangoTemplates',
+          'DIRS': [BASE_DIR / 'templates'], # Tambahkan kode ini
+          'APP_DIRS': True,
+          ...
+    }
+  ]
+   ```
+  - Mengubah kode berkas ```main.html``` yang terletak di subdirektori ```templates``` yang juga terletak dalam direktori ```main```. 
+  ```
+  {% extends 'base.html' %}
+
+  {% block content %}
+      <h1>Shopping List Page</h1>
+
+      <h5>Name:</h5>
+      <p>{{name}}</p>
+
+      <h5>Class:</h5>
+      <p>{{class}}</p>
+  {% endblock content %}
+  ```
+
+2. Membuat Form Input Data 
+   - Membuat berkas baru dengan nama ```forms.py``` di dalam direktori ```main``` dan menambahkan beberapa kode berikut : 
+   ```
+   from django.forms import ModelForm
+   from main.models import Product
+   class ProductForm(ModelForm):
+    class Meta:
+    model = item
+    fields = ["name","amount","description" "price", "type]
+   ```
+   Variable fields berisi objek model yang telah dibuat di berkas ```models.py``` .
+
+3. Menampilkan data dalam bentuk HTML dan menambahkan fungsi ```views``` dalam format HTML, XML, JSON, XML by ID dan JSON by ID. 
+   - Menambahkan import di berkas ```views.py``` di dalam direktori ```main```
+   ```
+   from django.http import HttpResponse
+   from django.core import serializers
+   from django.shortcuts import render
+   from django.http import HttpResponseRedirect
+   from main.forms import ProductForm
+   from django.urls import reverse 
+   from main.models import item
+   ```
+   - Menampilkan data dalam bentuk HTML. 
+    -- Membuat fungsi ```create_product``` dalam berkas ```views.py``` dengan parameter ```request``` yang berisi kumpulan kode untuk membuat formulir yang dapat menyimpan data yang di-submit melalui form. 
+    ```
+    def create_product(request):
+      form = ProductForm(request.POST or None)
+
+      if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+      context = {'form': form}
+      return render(request, "create_product.html", context)
+    ```
+    -- Mengubah fungsi ```show_main``` dalam berkas ```views.py``` . Fungsi ini untuk menampilkan data dalam bentuk HTML.
+    def show_main(request):
+      items = item.objects.all()
+      context = {
+          'name': 'Salma Kurnia Dewi',
+          'class': 'PBP B',
+          'items' : items
+      }
+      return render(request, "main.html", context)
+      ```
+     -- Menambahkan import pada berkas ```urls.py``` yang terdapat di direktori main.
+     ```from main.views import show_main, create_product```
+     -- Menambahkan path url dalam ```urlpatterns``` di berkas yang sama. 
+     ```path('create-product', create_product, name='create_product'),```
+     -- Membuat berkas berisi kode dengan nama ```create_product.html``` pada folder ```templates``` yang terletak di direktori ```main``` . Isi berkas tersebut: 
+     ```
+     {% extends 'base.html' %} 
+
+     {% block content %}
+     <h1>Add New Item</h1>
+
+     <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Add Item"/>
+                </td>
+            </tr>
+        </table>
+     </form>
+
+     {% endblock %}
+     ```
+     -- Menambahkan kode pada berkas ```main.html``` yang terletak di folder ```templates``` di direktori ```main```.
+     ```
+     <table>
+        <tr>
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Type</th>
+          <th>Date Added</th>
+        </tr>
+
+        {% for item in items %}
+          <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.date_added}}</td>
+          </tr>
+        {% endfor %}
+     </table>
+
+     <br />
+
+     <a href="{% url 'main:create_product' %}">
+      <button>
+        Add New Item
+      </button>
+     </a>
+
+     {% endblock content %}
+     ```
+
+   - Membuat fungsi ```show_xml``` untuk menampilkan data dengan bentuk XML.
+   ```
+   def show_xml(request):
+    data = item.objects.all()
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+   ```
+   - Membuat fungsi ```show_json``` untuk menampilkan data dengan bantuk JSON.
+   ```
+   def show_json(request):
+    data = item.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+   ```
+   - Membuat fungsi ```show_xml_by_id``` untuk menampilkan data berdasarkan ID dalam bentuk XML.
+   ```
+   def show_xml_by_id(request, id):
+    data = item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+   ```
+   - Membuat fungsi ```show_json_by_id``` untuk menampilkan data berdasarkan ID dalam bentuk JSON.
+   ```
+   def show_json_by_id(request, id):
+    data = item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+   ```
+4. Membuat routing URL untuk masing - masing fungsi ```views```. 
+   - Membuka berkas ```urls.py``` pada direktori ```main``` dan tambahkan import fungsi ```views```
+   ```from main.views import show_main, create_product, show_xml, show_json, show_xml_by_id, show_json_by_id ```
+   - Menambahkan path url ke dalam ```urlpatterns``` untuk mengakses fungsi ```views``` yang sudah di-import.
+  ```
+  path('xml/', show_xml, name='show_xml'), 
+  path('json/', show_json, name='show_json'), 
+  path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
+  path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
+  ```
+5. Mengecek data dengan mengakses fungsi ```views``` dengan URL menggunakan aplikasi Postman. 
+   - Mengaktifkan env di dengan menjalankan perintah : 
+   ```env\Scripts\activate.bat``` 
+   - Menjalankan proyek Django dengan perintah :
+   ```python manage.py runserver```
+   - Membuka aplikasi postman dan membuat request baru dengan method ```GET``` dan memasukkan URL fungsi ```views```.
+   -- URL ```http://localhost:8000/```(HTML)
+      ![Alt text](<Screenshot 2023-09-18 151003.png>)
+   -- URL ```http://localhost:8000/xml``` dan ```http://localhost:8000/xml/1```
+      ![Alt text](<Screenshot 2023-09-18 151039.png>)
+      ![Alt text](<Screenshot 2023-09-18 151137.png>)
+   -- URL ```http://localhost:8000/json``` dan ```http://localhost:8000/json/1```
+      ![Alt text](<Screenshot 2023-09-18 151058.png>)
+      ![Alt text](<Screenshot 2023-09-18 151120.png>)
+
+## Perbedaan form``` POST ``` dan form ```GET ``` pada Django
+## Perbedaan antara XML, JSON, dan HTML dalam pengiriman data
+## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern

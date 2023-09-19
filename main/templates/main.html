@@ -1,12 +1,48 @@
-<h1 style="text-align: center;">BakeryShop Page</h1>
-<hr>
-<h3>Name: </h3>
-<p>{{ name }} </p> <!-- Ubahlah sesuai dengan nama kamu -->
-<br>
-<h3>Class: </h3>
-<p>{{ class }}</p>
-<br>
-<h3>Product: </h3>
-<p>{{product}}</p>
-<hr>
-<!-- Ubahlah sesuai dengan kelas kamu -->
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1 style="text-align: center;">BakeryShop Page</h1>
+    <hr>
+    <h3>Name: </h3>
+    <p>{{ name }} </p> 
+    <br>
+    <h3>Class: </h3>
+    <p>{{ class }}</p>
+    <br>
+    <h3>Product: </h3>
+    <p>{{item}}</p>
+    <hr>
+  
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th>Date Added</th>
+    </tr>
+
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+    {% for item in items %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.date_added}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+    <button>
+        Add New Item
+    </button>
+</a>
+
+    {% endblock content %}
