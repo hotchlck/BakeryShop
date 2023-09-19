@@ -92,13 +92,13 @@
 ## Request Client
 ![baganClientRequest](https://github.com/hotchlck/BakeryShop/assets/126342746/c746edbf-7baa-4e7b-8b7f-8ceb6b1eeb5d)
 
-<h3>Virtual Environment</h3>
+## Virtual Environment
 Virtual Environment merupakan tools untuk membuat lingkungan python virtual yang terisolasi. 
 Virtual Environment membantu kita ketika membutuhkan dependencies yang berbeda - beda (contohnya python version) antara setiap proyek yang berjalan pada satu sistem operasi yang sama sehingga dapat mencegah konflik dan masalah yang disebabkan oleh perbedaan python version.
 Aplikasi web berbasis Django tetap bisa dibuat tanpa Virtual Environment. 
 Namun, terdapat risiko terjadinya konflik dependencies dengan proyek - proyek lain di sistem yang sama. 
 
-<h3>Mengenai MVC, MVT, dan MVVM</h3>
+## Mengenai MVC, MVT, dan MVVM
 Ketiganya merupakan arsitektur yang digunakan untuk merancang dan mengembangkan aplikasi berbasis web. Arsitektur tersebut digunakan untuk memisahkan tanggung jawab antara visualisasi, pemrosesan, dan manajemen data untuk aplikasi User interface.
 - MVC
   - Model : Komponen utama dari arsitektur yang mengelola data dan logika aplikasi.
@@ -337,13 +337,12 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
    - Metode ```GET``` digunakan untuk mengirim request pada server untuk mendapatkan data tertentu. Dengan menggunakan metode        ini, kita hanya bisa menerima data dari server dan tidak bisa mengubah-nya. Parameter request dari metode ```GET``` akan        ditampilkan di URL sehingga tidak dapat digunakan untuk mengolah data yang sensitif. ```GET``` request dapat di-cache dan       dapat di-bookmark. ```GET``` request memiliki batasan panjang data.
 
 ## Perbedaan XML, JSON, dan HTML dalam Pengiriman Data
-   - XML 
+   - XML
      Bahasa markup dan format berkas yang digunakan untuk menyimpan, mengirimkan, dan mengkonstruksi data, bukan untuk               menampilkan data. XML memiliki beberapa peraturan untuk mengkodekan dokumen dalam format yang dapat dibaca oleh mesin dan       manusia. Format XML lebih sulit dibaca jika dibandingkan dengan JSON. 
    - JSON
      JSON memiliki format pertukaran data dengan teks yang mudah dibaca oleh manusia untuk menyimpan dan mengirimkan data yang       terdiri dari key-value pairs (dictionary) dan array. Jika dibandingkan dengan XML, format JSON yang berbasis pada               JavaSCript lebih mudah dibaca oleh komputer karena penulisannya yang lebih simpel. 
-     - HTML
+   - HTML
      Bahasa markup yang digunakan untuk menyusun teks, gambar, dan materi lainnya yang akan ditampilkan oleh halaman web.
-     
      Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternatif untuk menyimpan dan mentransfer data,         sementara HTML digunakan untuk menyusun bagaimana data harus ditampilkan di perangkat pengguna.
      
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
