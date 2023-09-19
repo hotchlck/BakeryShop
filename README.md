@@ -1,5 +1,4 @@
 <h1>BakeryShop - Fresh Baked Goods Everyday!</h1>
-[BakeryShop App](https://bakeryshop.adaptable.app/main/)
 
 # Pembuatan App BakeryShop (TUGAS 2)
 1. Membuat sebuah proyek Django baru
