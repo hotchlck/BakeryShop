@@ -319,13 +319,11 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
    ```python manage.py runserver```
    - Membuka aplikasi postman dan membuat request baru dengan method ```GET``` dan memasukkan URL fungsi ```views```.
    -- URL ```http://localhost:8000/```(HTML)
-      ![Alt text](<Screenshot 2023-09-18 151003.png>)
+     
    -- URL ```http://localhost:8000/xml``` dan ```http://localhost:8000/xml/1```
-      ![Alt text](<Screenshot 2023-09-18 151039.png>)
-      ![Alt text](<Screenshot 2023-09-18 151137.png>)
+      
    -- URL ```http://localhost:8000/json``` dan ```http://localhost:8000/json/1```
-      ![Alt text](<Screenshot 2023-09-18 151058.png>)
-      ![Alt text](<Screenshot 2023-09-18 151120.png>)
+      
 
 ## Perbedaan form``` POST ``` dan form ```GET ``` pada Django
 ## Perbedaan antara XML, JSON, dan HTML dalam pengiriman data
