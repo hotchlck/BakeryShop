@@ -11,7 +11,7 @@
     <br>
     <h3>Product: </h3>
     <p>{{item}}</p>
-    <hr>
+    
   
 <table>
     <tr>
@@ -38,10 +38,16 @@
 </table>
 
 <br />
-
+<hr>
 <a href="{% url 'main:create_product' %}">
     <button>
         Add New Item
+    </button>
+</a>
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+<a href="{% url 'main:logout' %}">
+    <button>
+        Logout
     </button>
 </a>
 
