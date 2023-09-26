@@ -601,8 +601,9 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
 ## Perbedaan antara autentikasi dan otorisasi dalam konteks Django
    - Autentikasi merupakan proses untuk memastikan apakah user merupakan orang yang berhak untuk masuk dalam sistem tersebut. Mekanismenya adalah untuk memverifikasi identitas data pengguna sebelum memberikan informasi yang terkait.
    - Otorisasi merupakan suatu batasan yang ditetapkan mengenai apa yang boleh dan tidak boleh dilakukan oleh pengguna. Proses otorisasi dilaksanakan setelah proses autentifikasi. Keduanya memiliki peran penting dalam menjaga keamanan website agar website tidak dapat diakses oleh pengguna yang tidak ter-autentifikasi dan mencegah agar informasi pengguna tidak dapat diakses oleh pengguna lain.
+     
 ## Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
-   - Cookie merupakan file teks berisi potongan kecil data yang digunakan untuk menyimpan informasi berisi rekam jejak dan aktivitas pengguna ketika menelusuri sebuah website.
+Cookie merupakan file teks berisi potongan kecil data yang digunakan untuk menyimpan informasi berisi rekam jejak dan aktivitas pengguna ketika menelusuri sebuah website. Django mengelola cookie secara otomatis. Melalui response, server meminta browser untuk menyimpan data. Cookie akan disimpan oleh browser yang akan terus mengirimkan cookie pada server sehingga data data dapat diakses pada setiap request browser selanjutnya. 
 
 ##  Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 
