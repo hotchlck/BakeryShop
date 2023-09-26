@@ -14,7 +14,7 @@ from django.http import HttpResponseRedirect
 from main.forms import ProductForm
 from django.urls import reverse
 from main.models import item
-
+from django.shortcuts import get_object_or_404
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -24,6 +24,7 @@ def show_main(request):
         'class': 'PBP B',
         'items' : items,
         'last_login': request.COOKIES['last_login'],
+        'total_items': items.__len__(),
     }
     return render(request, "main.html", context)
 
@@ -83,3 +84,23 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def add_item(request, id_item):
+    product = get_object_or_404(item, pk=id_item, user=request.user)
+    product.amount += 1
+    product.save()
+    return redirect('main:show_main')
+
+def minus_item(request, id_item):
+    product = get_object_or_404(item, pk=id_item, user=request.user)
+    if product.amount >0:
+        product.amount -= 1
+        product.save()
+    else: 
+        messages.info(request, f'Tidak dapat mengurangi jumlah produk! Total {product.name} berjumlah 0 ')
+    return redirect('main:show_main')
+
+def remove_item(request, id_item):
+    product = get_object_or_404(item, pk=id_item, user=request.user)
+    product.delete()
+    return redirect('main:show_main')

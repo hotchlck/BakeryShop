@@ -38,13 +38,33 @@
 </table>
 
 <br />
-<hr>
+
 <a href="{% url 'main:create_product' %}">
     <button>
         Add New Item
     </button>
 </a>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<a href="{% url 'main:add_item' %}">
+    <button>
+        Add Item
+    </button>
+</a>
+<a href="{% url 'main:minus_item' %}">
+    <button>
+        Substract Item
+    </button>
+</a>
+<a href="{% url 'main:remove_item' %}">
+    <button>
+        Remove Item
+    </button>
+</a>
+<hr>
+
+<h4>Last Login Session: {{ last_login }}</h4>
+<h4>You have saved {{total_items}} items in this application</h4>
+
 <a href="{% url 'main:logout' %}">
     <button>
         Logout
