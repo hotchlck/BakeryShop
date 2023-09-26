@@ -516,8 +516,25 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
    ![Screenshot 2023-09-27 001800](https://github.com/hotchlck/BakeryShop/assets/126342746/0fdf1ba7-e2cf-42d5-8d4c-6beabd825fe2)
    ![Screenshot 2023-09-27 001952](https://github.com/hotchlck/BakeryShop/assets/126342746/936c0f11-3e16-4352-87f0-bce8cafbec3f)
 3. Menampilkan detail informasi user yang sedang logged in berupa ```username``` dan menerapkan ```cookies``` yang berupa ```last login```
+   - Menambahkan import ke dalam berkas ```views.py``` yang terdapat dalam direktori ```main```
+     ```
+     import datetime
+     from django.http import HttpResponseRedirect
+     from django.urls import reverse
+     ```
+   - Menambahkan cookie yang bernama ```last_login``` dalam fungsi ```login_user``` untuk menampilkan waktu terakhir user login.
+     ```
+     ...
+      if user is not None:
+          login(request, user)
+          response = HttpResponseRedirect(reverse("main:show_main")) 
+          response.set_cookie('last_login', str(datetime.datetime.now()))
+          return response
+     ...
+     ```
+     
 
-       
+          
    
 ## Pengertian Django ```UserCreationForm```
 ```UserCreationForm``` merupakan sistem autentikasi bawaan dari Django yang merupakan inheritance dari class ModelForm. Form ini digunakan untuk membuat form user baru. 
