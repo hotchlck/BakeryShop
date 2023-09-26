@@ -532,6 +532,30 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
           return response
      ...
      ```
+   - Menambahkan kode dalam variable ```context``` pada fungsi ```show_main``` yang berfungsi menambahkan informasi cookie last_login pada response yang akan ditampilkan di halaman web
+     ```
+     context = {
+     ...
+     'last_login' : request.COOKIES['last_login'],
+     }
+     ```
+   - Mengubah fungsi ```logout_user``` yang berfungsi untuk menghapus cookie ```last_login``` saat pengguna melakukan ```logout```.
+     ```
+     def logout_user(request):
+     logout(request)
+     response = HttpResponseRedirect(reverse('main:login'))
+     response.delete_cookie('last_login')
+     return response
+     ```
+   - Menambahkan potongan kode ke berkas ```main.html``` untuk menampilkan data last login.
+     ```
+     ...
+     <h5>Sesi terakhir login: {{ last_login }}</h5>
+     ...
+     ```
+     
+     
+     
      
 
           
