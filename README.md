@@ -512,8 +512,11 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
        path('logout/', logout_user, name='logout'),
        ...
        ```
-          
-       
+2. Membuat dua akun pengguna dengan tiga dummy data.
+   ![Screenshot 2023-09-27 001800](https://github.com/hotchlck/BakeryShop/assets/126342746/0fdf1ba7-e2cf-42d5-8d4c-6beabd825fe2)
+   ![Screenshot 2023-09-27 001952](https://github.com/hotchlck/BakeryShop/assets/126342746/936c0f11-3e16-4352-87f0-bce8cafbec3f)
+
+
        
    
 ## Pengertian Django ```UserCreationForm```
