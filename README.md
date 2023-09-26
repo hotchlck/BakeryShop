@@ -352,14 +352,168 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
 ## Implementasi Checklist 
 1. Fungsi registrasi, login, dan logout.
    - Mengaktifkan virtual environment
-   - Fungsi registrasi
+   - Fungsi register dan form register
      - Membuka berkas views.py pada direktori main dan menambahkan import
        ```
        from django.shortcuts import redirect
        from django.contrib.auth.forms import UserCreationForm
        from django.contrib import messages
        ```
-     - Membuat fungsi register yang berisi kode untuk 
+     - Membuat fungsi register yang berisi kode untuk membuat formulir registrasi otomatis.
+       ```
+       def register(request):
+          form = UserCreationForm()
+      
+          if request.method == "POST":
+              form = UserCreationForm(request.POST)
+              if form.is_valid():
+                  form.save()
+                  messages.success(request, 'Your account has been successfully created!')
+                  return redirect('main:login')
+          context = {'form':form}
+          return render(request, 'register.html', context)
+       ```
+     - Membuat berkas HTML yang bernama ```register.html``` pada folder ```main/templates``` yang bersisi kode berupa template untuk register account user.
+       ```
+         {% extends 'base.html' %}
+
+         {% block meta %}
+             <title>Register</title>
+         {% endblock meta %}
+         
+         {% block content %}  
+         
+         <div class = "login">
+             
+             <h1>Register</h1>  
+         
+                 <form method="POST" >  
+                     {% csrf_token %}  
+                     <table>  
+                         {{ form.as_table }}  
+                         <tr>  
+                             <td></td>
+                             <td><input type="submit" name="submit" value="Daftar"/></td>  
+                         </tr>  
+                     </table>  
+                 </form>
+         
+             {% if messages %}  
+                 <ul>   
+                     {% for message in messages %}  
+                         <li>{{ message }}</li>  
+                         {% endfor %}  
+                 </ul>   
+             {% endif %}
+         
+         </div>  
+         
+         {% endblock content %}
+       ```
+     - Import fungsi register dan menambahkan path url pada berkas ```urls.py``` yang terdapat di direktori ```main```
+       ```from main.views import register```
+       ```path('register/', register, name='register'), # ditambahkan pada urlpatterns ```
+   - Fungsi login dan form login
+     - Menambahkan import ```authenticate``` dan ```login``` serta membuat fungsi ```login_user``` berisi kode untuk mengautentikasikan input pengguna ketika
+       ingin login.
+       ```
+       from django.contrib.auth import authenticate, login
+       ...
+       def login_user(request):
+          if request.method == 'POST':
+              username = request.POST.get('username')
+              password = request.POST.get('password')
+              user = authenticate(request, username=username, password=password)
+              if user is not None:
+                  login(request, user)
+                  return redirect('main:show_main')
+              else:
+                  messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+          context = {}
+          return render(request, 'login.html', context)
+       ...
+       ```
+     - Membuat berkas dengan nama ```login.html``` pada folder ```main/templates``` yang berisi kode template.
+       ```
+         {% extends 'base.html' %}
+
+         {% block meta %}
+             <title>Login</title>
+         {% endblock meta %}
+         
+         {% block content %}
+         
+         <div class = "login">
+         
+             <h1>Login</h1>
+         
+             <form method="POST" action="">
+                 {% csrf_token %}
+                 <table>
+                     <tr>
+                         <td>Username: </td>
+                         <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                     </tr>
+                             
+                     <tr>
+                         <td>Password: </td>
+                         <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                     </tr>
+         
+                     <tr>
+                         <td></td>
+                         <td><input class="btn login_btn" type="submit" value="Login"></td>
+                     </tr>
+                 </table>
+             </form>
+         
+             {% if messages %}
+                 <ul>
+                     {% for message in messages %}
+                         <li>{{ message }}</li>
+                     {% endfor %}
+                 </ul>
+             {% endif %}     
+                 
+             Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+         
+         </div>
+         
+         {% endblock content %}
+       ```
+     - Import fungsi login dan menambahkan path url pada berkas ```urls.py``` yang terdapat di direktori ```main```
+       ```from main.views import login_user```
+       ```path('login/', login_user, name='login'), # ditambahkan pada urlpatterns ```
+   - Fungsi logout
+     - Menambahkan import ```logout``` dan membuat fungsi ```logout_user``` yang berisi
+       ptotongan kode untuk implementasi fungsi logout.
+       ```
+       from django.contrib.auth import logout
+       ...
+       def logout_user(request):
+       logout(request)
+       return redirect('main:login')
+       ...
+       ```
+     - Menambahkan kode button ```logout``` pada berkas ```main.html``` yang ada pafa folder ```main/templates```
+       ```
+       ...
+       <a href="{% url 'main:logout' %}">
+          <button>
+              Logout
+          </button>
+       </a>
+       ...
+       ```
+     - Import fungsi ```logout_user``` dan menambahkan path url pada berkas ```urls.py``` yang terdapat di direktori ```main```
+       ```
+       from main.views import logout_user
+       ... 
+       path('logout/', logout_user, name='logout'),
+       ...
+       ```
+          
+       
        
    
 ## Pengertian Django ```UserCreationForm```
