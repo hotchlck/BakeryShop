@@ -322,7 +322,7 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
    - Menjalankan proyek Django dengan perintah :
      ```python manage.py runserver```
    - Membuka aplikasi postman dan membuat request baru dengan method ```GET``` dan memasukkan URL fungsi ```views```.
-<<<<<<< HEAD
+
    
    -- URL ```http://localhost:8000/```(HTML)
        ![Screenshot 2023-09-18 151003](https://github.com/hotchlck/BakeryShop/assets/126342746/3276793a-8eca-4d81-bf5f-772e81df6a09)
