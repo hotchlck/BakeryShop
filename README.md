@@ -357,9 +357,9 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
    JSON sering digunakan dalam pertukaran data antar aplikasi karena mudah ditulis dan mudah dimengerti. JSON menggunakan          format dengan key-value pairs (dictionary) dan array. Tidak seperti XML, penulisan sintaks JSON lebih ringan dan tidak          membutuhkan tag khusus, atribut, atau skema tertentu sehingga mudah untuk diterjemahkan dan dibuat oleh komputer.
 
-     
-
-
+# TUGAS 3 
+## Pengertian Django ```UserCreationForm```
+```UserCreationForm``` merupakan sistem autentikasi bawaan dari Django yang merupakan inheritance dari class ModelForm. Form ini digunakan untuk membuat form user baru. 
 
    
 >>>>>>> d4ee8dcd55640383daf4f413543f319893175796
