@@ -323,20 +323,14 @@ Pada MVC, Model, View dan Controller merupakan tiga bagian yang terpisah. MVT mi
      ```python manage.py runserver```
    - Membuka aplikasi postman dan membuat request baru dengan method ```GET``` dan memasukkan URL fungsi ```views```.
 <<<<<<< HEAD
+   
    -- URL ```http://localhost:8000/```(HTML)
-     
-   -- URL ```http://localhost:8000/xml``` dan ```http://localhost:8000/xml/1```
-      
-   -- URL ```http://localhost:8000/json``` dan ```http://localhost:8000/json/1```
-      
-=======
-     - URL ```http://localhost:8000/```(HTML)
        ![Screenshot 2023-09-18 151003](https://github.com/hotchlck/BakeryShop/assets/126342746/3276793a-8eca-4d81-bf5f-772e81df6a09)
-     - URL ```http://localhost:8000/xml``` dan ```http://localhost:8000/xml/1```
+   -- URL ```http://localhost:8000/xml``` dan ```http://localhost:8000/xml/1```
        ![Screenshot 2023-09-18 151039](https://github.com/hotchlck/BakeryShop/assets/126342746/f586821b-2c65-424f-9059-8b5db44bda31)
        ![Screenshot 2023-09-18 151137](https://github.com/hotchlck/BakeryShop/assets/126342746/f51da316-479d-4ef7-85b4-baed8d9a0a12)
 
-     - URL ```http://localhost:8000/json``` dan ```http://localhost:8000/json/1```
+   -- URL ```http://localhost:8000/json``` dan ```http://localhost:8000/json/1```
        ![Screenshot 2023-09-18 151058](https://github.com/hotchlck/BakeryShop/assets/126342746/acbf04b9-8005-4fe5-ba40-4999947bb28e)
        ![Screenshot 2023-09-18 151120](https://github.com/hotchlck/BakeryShop/assets/126342746/b095f7b0-ebf4-406b-8ffb-1157b3d6552d)
 
@@ -362,5 +356,4 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
 ```UserCreationForm``` merupakan sistem autentikasi bawaan dari Django yang merupakan inheritance dari class ModelForm. Form ini digunakan untuk membuat form user baru. 
 
    
->>>>>>> d4ee8dcd55640383daf4f413543f319893175796
 
