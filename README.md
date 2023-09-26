@@ -606,6 +606,7 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
 Cookie merupakan file teks berisi potongan kecil data yang digunakan untuk menyimpan informasi berisi rekam jejak dan aktivitas pengguna ketika menelusuri sebuah website. Django mengelola cookie secara otomatis. Melalui response, server meminta browser untuk menyimpan data. Cookie akan disimpan oleh browser yang akan terus mengirimkan cookie pada server sehingga data data dapat diakses pada setiap request browser selanjutnya. 
 
 ##  Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Apabila cookie digunakan ketika user tidak sedang mengakses data yang sensitif, maka pengunaan cookie pada aplikasi web tergolong aman. Data yang disimpan pada cookie juga merupakan data sementara. Namun, masih ada kemungkinan serangan yang dapat terjadi seperti penyerang yang dapat mengakses website tanpa sepengethauan pengguna dengan menncuri cookies milik pengguna. Hal ini mudah dilakukan karena sifat cookies yang transpran dan mudah dicopy.
 
     
 
