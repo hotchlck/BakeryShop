@@ -351,6 +351,15 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
 # TUGAS 3 
 ## Pengertian Django ```UserCreationForm```
 ```UserCreationForm``` merupakan sistem autentikasi bawaan dari Django yang merupakan inheritance dari class ModelForm. Form ini digunakan untuk membuat form user baru. 
+- Kelebihan :
+  - Form merupakan template bawaan dari Django sehingga mudah digunakan.
+  - ```UserCreationForm``` terintegrasi dengan database sehingga memudahkan penyimpanan data.
+  - Form menyediakan validasi otomatis kepada input yang diberikan user saat membuat akun.
+- Kekurangan
+  - Kustomisasi sulit dilakukan dan membutuhkan penyesuaian yang lebih rumit.
+  - Tampilan bawaan yang sederhana sehingga jika ingin merubah tampilan dapat menggunakan CSS dan HTML tambahan.
+  - Fitur bawaan terbatas sehingga jika ingin menambah fitur autentikasi lainnya harus menambahkan secara manual.
+    
 
    
 
