@@ -599,7 +599,12 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
      - Tampilan bawaan yang sederhana sehingga jika ingin merubah tampilan dapat menggunakan CSS dan HTML tambahan.
      - Fitur bawaan terbatas sehingga jika ingin menambah fitur autentikasi lainnya harus menambahkan secara manual.
 ## Perbedaan antara autentikasi dan otorisasi dalam konteks Django
-Autentikasi merupakan proses untuk memastikan apakah user merupakan orang yang berhak untuk masuk dalam sistem tersebut. Mekanismenya adalah untuk memverifikasi identitas data pengguna sebelum memberikan informasi yang terkait. Sementara itu, otorisasi merupakan suatu batasan yang ditetapkan mengenai apa yang boleh dan tidak boleh dilakukan oleh pengguna. Proses otorisasi dilaksanakan setelah proses autentifikasi. Keduanya memiliki peran penting dalam menjaga keamanan website agar website tidak dapat diakses oleh pengguna yang tidak ter-autentifikasi dan mencegah agar informasi pengguna tidak dapat diakses oleh pengguna lain.
+   - Autentikasi merupakan proses untuk memastikan apakah user merupakan orang yang berhak untuk masuk dalam sistem tersebut. Mekanismenya adalah untuk memverifikasi identitas data pengguna sebelum memberikan informasi yang terkait.
+   - Otorisasi merupakan suatu batasan yang ditetapkan mengenai apa yang boleh dan tidak boleh dilakukan oleh pengguna. Proses otorisasi dilaksanakan setelah proses autentifikasi. Keduanya memiliki peran penting dalam menjaga keamanan website agar website tidak dapat diakses oleh pengguna yang tidak ter-autentifikasi dan mencegah agar informasi pengguna tidak dapat diakses oleh pengguna lain.
+## Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+   - Cookie merupakan file teks berisi potongan kecil data yang digunakan untuk menyimpan informasi berisi rekam jejak dan aktivitas pengguna ketika menelusuri sebuah website.
+
+##  Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 
     
 
