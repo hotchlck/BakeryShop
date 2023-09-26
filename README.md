@@ -553,8 +553,42 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
      <h5>Sesi terakhir login: {{ last_login }}</h5>
      ...
      ```
-     
-     
+4. Menghubungkan Model Product dengan User
+   - Menambahkan import pada berkas models.py yang ada di dalam direktori ```main```
+     ```from django.contrib.auth.models import User```
+   - Menambahkan potonngan kode pada class Item untuk menghubungkan satu produk dengan satu user.
+     ```
+     class Product(models.Model):
+     user = models.ForeignKey(User, on_delete=models.CASCADE)
+     ...
+     ```
+   - Mengubah kode pada fungsi ```create_product``` pada berkas ```views.py``` yang terdapat pada direktori ```main``` untuk mencegah Django agar tidak langsung menyimpan objek yang telah dibuat dari form langsung ke database.
+     ```
+     def create_product(request):
+       form = ProductForm(request.POST or None)
+
+       if form.is_valid() and request.method == "POST":
+           product = form.save(commit=False)
+           product.user = request.user
+           product.save()
+           return HttpResponseRedirect(reverse('main:show_main'))
+      ...
+     ```
+   - Mengubah fungsi ```show_main``` untuk menampilkan objek Product yang terasosiasikan dengan pengguna yang sedang login
+     ```
+     def show_main(request):
+          products = Product.objects.filter(user=request.user)
+      
+          context = {
+              'name': request.user.username,
+          ...
+      ...
+     ```
+   - Melakukan migrasi dengan menjalankan command ```python manage.py makemigrations```
+   - Ketika muncul pesan error, tekan 1 untuk menetapkan default value untuk field user yang telah dibuat. Lalu, ketik 1 lagi untuk menetapkan user dengan ID 1.
+   - Mengaplikasikan migrasi yang telah dilakukan dengan menjalankan command ```python manage.py migrate```
+   - 
+           
      
      
 
