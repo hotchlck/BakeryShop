@@ -348,7 +348,7 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
    JSON sering digunakan dalam pertukaran data antar aplikasi karena mudah ditulis dan mudah dimengerti. JSON menggunakan          format dengan key-value pairs (dictionary) dan array. Tidak seperti XML, penulisan sintaks JSON lebih ringan dan tidak          membutuhkan tag khusus, atribut, atau skema tertentu sehingga mudah untuk diterjemahkan dan dibuat oleh komputer.
 
-# TUGAS 3 
+# TUGAS 4
 ## Implementasi Checklist 
 1. Fungsi registrasi, login, dan logout.
    - Mengaktifkan virtual environment
@@ -587,23 +587,20 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
    - Melakukan migrasi dengan menjalankan command ```python manage.py makemigrations```
    - Ketika muncul pesan error, tekan 1 untuk menetapkan default value untuk field user yang telah dibuat. Lalu, ketik 1 lagi untuk menetapkan user dengan ID 1.
    - Mengaplikasikan migrasi yang telah dilakukan dengan menjalankan command ```python manage.py migrate```
-   - 
-           
-     
-     
 
-          
-   
 ## Pengertian Django ```UserCreationForm```
 ```UserCreationForm``` merupakan sistem autentikasi bawaan dari Django yang merupakan inheritance dari class ModelForm. Form ini digunakan untuk membuat form user baru. 
-- Kelebihan :
-  - Form merupakan template bawaan dari Django sehingga mudah digunakan.
-  - ```UserCreationForm``` terintegrasi dengan database sehingga memudahkan penyimpanan data.
-  - Form menyediakan validasi otomatis kepada input yang diberikan user saat membuat akun.
-- Kekurangan
-  - Kustomisasi sulit dilakukan dan membutuhkan penyesuaian yang lebih rumit.
-  - Tampilan bawaan yang sederhana sehingga jika ingin merubah tampilan dapat menggunakan CSS dan HTML tambahan.
-  - Fitur bawaan terbatas sehingga jika ingin menambah fitur autentikasi lainnya harus menambahkan secara manual.
+   - Kelebihan :
+     - Form merupakan template bawaan dari Django sehingga mudah digunakan.
+     - ```UserCreationForm``` terintegrasi dengan database sehingga memudahkan penyimpanan data.
+     - Form menyediakan validasi otomatis kepada input yang diberikan user saat membuat akun.
+   - Kekurangan
+     - Kustomisasi sulit dilakukan dan membutuhkan penyesuaian yang lebih rumit.
+     - Tampilan bawaan yang sederhana sehingga jika ingin merubah tampilan dapat menggunakan CSS dan HTML tambahan.
+     - Fitur bawaan terbatas sehingga jika ingin menambah fitur autentikasi lainnya harus menambahkan secara manual.
+## Perbedaan antara autentikasi dan otorisasi dalam konteks Django
+Autentikasi merupakan proses untuk memastikan apakah user merupakan orang yang berhak untuk masuk dalam sistem tersebut. Mekanismenya adalah untuk memverifikasi identitas data pengguna sebelum memberikan informasi yang terkait. Sementara itu, otorisasi merupakan suatu batasan yang ditetapkan mengenai apa yang boleh dan tidak boleh dilakukan oleh pengguna. Proses otorisasi dilaksanakan setelah proses autentifikasi. Keduanya memiliki peran penting dalam menjaga keamanan website agar website tidak dapat diakses oleh pengguna yang tidak ter-autentifikasi dan mencegah agar informasi pengguna tidak dapat diakses oleh pengguna lain.
+
     
 
    
