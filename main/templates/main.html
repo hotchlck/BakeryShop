@@ -28,11 +28,28 @@
     {% for item in items %}
         <tr>
             <td>{{item.name}}</td>
-            <td>{{item.amount}}</td>
+            <td>
+                <div class="amount-container">
+                    <a href="{% url 'main:minus_item' item.id %}">
+                        <button>-</button>
+                    </a>
+                    <span>{{item.amount}}</span>
+                    <a href="{% url 'main:add_item' item.id %}">
+                        <button>+</button>
+                    </a>        
+                </div>
+            </td>
             <td>{{item.description}}</td>
             <td>{{item.price}}</td>
             <td>{{item.type}}</td>
             <td>{{item.date_added}}</td>
+            <td>
+            <a href="{% url 'main:remove_item' item.id %}">
+                <button>
+                    Remove Item
+                </button>
+            </a>
+            </td>
         </tr>
     {% endfor %}
 </table>
@@ -45,21 +62,6 @@
     </button>
 </a>
 
-<a href="{% url 'main:add_item' %}">
-    <button>
-        Add Item
-    </button>
-</a>
-<a href="{% url 'main:minus_item' %}">
-    <button>
-        Substract Item
-    </button>
-</a>
-<a href="{% url 'main:remove_item' %}">
-    <button>
-        Remove Item
-    </button>
-</a>
 <hr>
 
 <h4>Last Login Session: {{ last_login }}</h4>
