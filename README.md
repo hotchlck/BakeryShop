@@ -349,6 +349,19 @@ Perbedaan mendasar dari ketiganya adalah JSON dan XML merupakan metode alternati
    JSON sering digunakan dalam pertukaran data antar aplikasi karena mudah ditulis dan mudah dimengerti. JSON menggunakan          format dengan key-value pairs (dictionary) dan array. Tidak seperti XML, penulisan sintaks JSON lebih ringan dan tidak          membutuhkan tag khusus, atribut, atau skema tertentu sehingga mudah untuk diterjemahkan dan dibuat oleh komputer.
 
 # TUGAS 3 
+## Implementasi Checklist 
+1. Fungsi registrasi, login, dan logout.
+   - Mengaktifkan virtual environment
+   - Fungsi registrasi
+     - Membuka berkas views.py pada direktori main dan menambahkan import
+       ```
+       from django.shortcuts import redirect
+       from django.contrib.auth.forms import UserCreationForm
+       from django.contrib import messages
+       ```
+     - Membuat fungsi register yang berisi kode untuk 
+       
+   
 ## Pengertian Django ```UserCreationForm```
 ```UserCreationForm``` merupakan sistem autentikasi bawaan dari Django yang merupakan inheritance dari class ModelForm. Form ini digunakan untuk membuat form user baru. 
 - Kelebihan :
