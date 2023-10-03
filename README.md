@@ -707,20 +707,20 @@ Apabila cookie digunakan ketika user tidak sedang mengakses data yang sensitif, 
 
 ## Perbedaan antara margin dan padding 
    - Margin
-     Margin merupakan ruang di sekitar elemen yang berada di luar batas elemen dan digunakan untuk mengontrol jarak anatar elemen tersebut dengan elemen - elemen disekitarnya. Margin juga tidak memiliki latar -  belakang atau wrana, sehingga elemen di belakang margin juga masih bisa dilihat melalui margin. 
+     Merupakan ruang di sekitar elemen yang berada di luar batas elemen dan digunakan untuk mengontrol jarak anatar elemen tersebut dengan elemen - elemen disekitarnya. Margin juga tidak memiliki      latar -  belakang atau wrana, sehingga elemen di belakang margin juga masih bisa dilihat melalui margin. 
    - Padding
-     Padding adalah ruang yang berada di antara konten elmeen dan batasnya. Padding digunakan untuk mengontrol jarak elemen dan batas elemen tersebut. Padding memiliki latar belakang dan warna dengan elemen yang berkaitan sehingga tidak ada elemen yang bisa terlihat melalui padding. 
+     Merupakan ruang yang berada di antara konten elmeen dan batasnya. Padding digunakan untuk mengontrol jarak elemen dan batas elemen tersebut. Padding memiliki latar belakang dan warna dengan       elemen yang berkaitan sehingga tidak ada elemen yang bisa terlihat melalui padding. 
 
 ## Perbedaan antara framewrok CSS Tailwind dan Bootstrap
    - Sisi Desain
      - Bootstrap
-       Cocok untuk proyek pembuatan web dengan desain tradisional yang membutuhkan kerangka kerja yang stabil dan mudah digunakan karena Bootstrap menyediakan set class CSS dan komponen yang telah dirancang sebelumnya dengan terstruktur dan konsisten. 
+       Cocok untuk proyek pembuatan web dengan desain tradisional yang membutuhkan kerangka kerja yang stabil dan mudah digunakan karena Bootstrap menyediakan set class CSS dan komponen yang             telah dirancang sebelumnya dengan terstruktur dan konsisten. 
      - Tailwind 
-       Tailwind memberikan kebebasan yang lebih besar untuk berkreasi dan memungkinkan penggunaan class yang sangat spesifik. Pada Taiwind, kita membangun interface dengan class utilitad yang lebih kecil. 
+       Memberikan kebebasan yang lebih besar untuk berkreasi dan memungkinkan penggunaan class yang sangat spesifik. Pada Taiwind, kita membangun interface dengan class utilitad yang                     lebih kecil. 
    - Fleksibilitas 
      - Bootstrap
-       Bootstrap menyediakan kerangka kerja atau template yang relatif terstruktur dengan banyak komponen yang telah dirancang sebelumnya. Hal ini memberikan stabilitas dan kemudahan untuk pengguna, namun terdapat batasan dalam fleksibilitas desain yang unik. 
-     - Tailwind 
+       Bootstrap menyediakan kerangka kerja atau template yang relatif terstruktur dengan banyak komponen yang telah dirancang sebelumnya. Hal ini memberikan stabilitas dan kemudahan untuk               pengguna, namun terdapat batasan dalam fleksibilitas desain yang unik. 
+     - Tailwind
        Tailwind memberi kita kebebasan untuk membangun desain yang kita mau sesuai kebutuhan. Tingkat fleksibilitas tailwind lebih besar dengan pendekatan 'utility-first'.
    - Ukuran File 
      - Bootstrap 
