@@ -608,7 +608,128 @@ Cookie merupakan file teks berisi potongan kecil data yang digunakan untuk menyi
 ##  Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 Apabila cookie digunakan ketika user tidak sedang mengakses data yang sensitif, maka pengunaan cookie pada aplikasi web tergolong aman. Data yang disimpan pada cookie juga merupakan data sementara. Namun, masih ada kemungkinan serangan yang dapat terjadi seperti penyerang yang dapat mengakses website tanpa sepengethauan pengguna dengan menncuri cookies milik pengguna. Hal ini mudah dilakukan karena sifat cookies yang transpran dan mudah dicopy.
 
+# TUGAS 5 
+## Jenis - jenis selector dan waktu yang tepat untuk menggunakannya. 
+   - Tag Selector
+     Selector yang digunakan untuk memilih semua elemen HTML yang sesuai dengan jenis tag yang dicantumkan. Selector ini dapat digunakan apabila ingin menerapkan design yang sama kepada semua elemn yang memiliki tag sama. 
+     Contoh : 
+     ```
+     h1 {
+        color: black;
+     }
+     ```
+     Pada contoh di atas, selector memilih semua elemen ```<h1>``` dan mengatur warnanya menjadi hitam.
+   - Class Selector 
+     Selector yang digunakan untuk memilih elemen HTML bedasarkan atribut ```class``` yang dicantumkan. 
+     Contoh : 
+     ```
+     <style>
+      .card (
+        background-color: white;
+      )
+     </style>
+
+     <h2 class="card">List Items</h2>
+     ```
+     Pada contoh, selector memilih semua elemen yang diberikan ```.card``` sebagai attribute ```class```-nya. 
+   - ID Selector 
+     Selector yang digunakan untuk memilih elemen HTML sesuai ```id``` yang telah diberikan. ```id``` bersifat unik dan hanya boleh digunakan pada satu elemen. Selector ini cocok digunakan apabila ingin menerpakan design untuk elemen tunggal yang unik. 
+     Contoh : 
+     ```
+     #footer {
+      background: teal;
+      color: white;
+     }
+     <h1 id="footer">Selamat Tinggal</h1>
     
+     ```
+   - Attribute Selector 
+     Selector yang digunakan untuk memilih elemen HTML bedasarkan ```attribute``` yang dicantumkan.
+     Contoh : 
+     ```
+     input[type=text] {
+      padding: 10px;
+      border: 1px solid cyan;
+     }
+     <input type="text" placeholder="ketik sesuatu..." />
+     ```
+   - Universal Selector 
+     Selector yang digunakan untuk memilih semua elemen HTML pada jangkauan tertentu. Dapat digunakan saat ingin menerapkan design yang sama ke semua elemen HTML. 
+     Contoh : 
+     ```
+     * {
+     color: red;
+     }
+     ```
+     Pada contoh, semua elemen akan berwarna merah. 
+
+## HTML5 Tag
+   1. ```<p>``` 
+     Digunakan untuk membuat elemen HTML yang berup paragraf.
+   2. ```<h1>```, ```<h2>```, ```<h3>```, ```<h4>```, ```<h5>```, ```<h6>```
+     Digunakan untuk membuat judul atau heading. Perbedaan ukuran dari ```<h1>``` hingga ```<h6>``` menandakan urutan kepentingan dari suatu judul. 
+   3. ```<style>```
+     Digunakan dalam menyimpan informasi design untuk halaman web.
+   4. ```<table>```
+     Digunakan untuk membuat table. 
+   5. ```<img>```
+     Digunakan untuk menampilkan gambar pada halaman web. 
+   6. ```<ul>```
+     Digunakan untuk membuat list yang tidak berurutan. 
+   7. ```<li>```
+     Digunakan untuk memberi isi pada sebuah list.
+   8. ```<button```
+     Digunakan untuk membuat tombol yang reaktif pada halaman web. 
+   9. ```<input>```
+     Digunakan untuk memuat input yang akan diberikan oleh pengguna. 
+  10. ```<table>```
+     Digunakan untuk membuat table pada halaman web. 
+  11. ```<form>```
+     Digunakan untuk menampilkan form HTML untuk menerima input dari pengguna. 
+  12. ```<div>```
+     Digunakan jika ingin menetapkan beberapa elemen di dokumen HTML menjadi satu bagian. 
+  13. ```<video>```
+     Digunakan untuk menampilkan video pada halaman web.
+  14. ```<audio>```
+     Digunakan untuk menyisipkan audio pada halaman web 
+  15. ```<title>```
+     Digunakan untuk memberi judul pada halaman web. Judul akan ditampilkan pada bilah judul browser. 
+  16. ```<td>```
+     Digunakan untuk mendefinisikan sebuah sel dalam tabel.
+  17. ```<tr>```
+     Digunakan untuk mendefinisikan sbeuah baris dalam tabel. 
+  18. ```<head>```
+     Digunakan untuk menyimpan informasi mengenai halaman web. 
+  19. ```<span>```
+     Digunakan untuk mendefiniskan sebuah baris dalam tabel. 
+  20. ```<links>```
+     Digunakan untuk menghubungan berkas HTML dengan dokumen - dokumen eksternal, seperti stylesheet CSS. 
+
+## Perbedaan antara margin dan padding 
+   - Margin
+     Margin merupakan ruang di sekitar elemen yang berada di luar batas elemen dan digunakan untuk mengontrol jarak anatar elemen tersebut dengan elemen - elemen disekitarnya. Margin juga tidak memiliki latar -  belakang atau wrana, sehingga elemen di belakang margin juga masih bisa dilihat melalui margin. 
+   - Padding
+     Padding adalah ruang yang berada di antara konten elmeen dan batasnya. Padding digunakan untuk mengontrol jarak elemen dan batas elemen tersebut. Padding memiliki latar belakang dan warna dengan elemen yang berkaitan sehingga tidak ada elemen yang bisa terlihat melalui padding. 
+
+## Perbedaan antara framewrok CSS Tailwind dan Bootstrap
+   - Sisi Desain
+     - Bootstrap
+       Cocok untuk proyek pembuatan web dengan desain tradisional yang membutuhkan kerangka kerja yang stabil dan mudah digunakan karena Bootstrap menyediakan set class CSS dan komponen yang telah dirancang sebelumnya dengan terstruktur dan konsisten. 
+     - Tailwind 
+       Tailwind memberikan kebebasan yang lebih besar untuk berkreasi dan memungkinkan penggunaan class yang sangat spesifik. Pada Taiwind, kita membangun interface dengan class utilitad yang lebih kecil. 
+   - Fleksibilitas 
+     - Bootstrap
+       Bootstrap menyediakan kerangka kerja atau template yang relatif terstruktur dengan banyak komponen yang telah dirancang sebelumnya. Hal ini memberikan stabilitas dan kemudahan untuk pengguna, namun terdapat batasan dalam fleksibilitas desain yang unik. 
+     - Tailwind 
+       Tailwind memberi kita kebebasan untuk membangun desain yang kita mau sesuai kebutuhan. Tingkat fleksibilitas tailwind lebih besar dengan pendekatan 'utility-first'.
+   - Ukuran File 
+     - Bootstrap 
+       Karena berisi banyak fitur dan komponen yang siap pakai, ukuran file Bootstrap lebih besar. 
+     - Tailwind 
+       Tailwind dirancang untuk memiliki ukuran file yang lebih ringan. Namun, ukuran file CSS dapat meningkat ketika menggunakan banyak class utilitas di dalam kode. 
+
+
+
 
    
 

@@ -52,6 +52,7 @@ def show_xml_by_id(request, id):
 def show_json_by_id(request, id):
     data = item.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
 def register(request):
     form = UserCreationForm()
 
@@ -99,6 +100,21 @@ def minus_item(request, id_item):
     else: 
         messages.info(request, f'Tidak dapat mengurangi jumlah produk! Total {product.name} berjumlah 0 ')
     return redirect('main:show_main')
+
+def edit_product(request, id_item):
+    # Get product berdasarkan ID
+    product = item.objects.get(pk = id_item)
+
+    # Set product sebagai instance dari form
+    form = ProductForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
 
 def remove_item(request, id_item):
     product = get_object_or_404(item, pk=id_item, user=request.user)

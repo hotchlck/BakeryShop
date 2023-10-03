@@ -5,40 +5,74 @@
 {% endblock meta %}
 
 {% block content %}
+<style>
+    .heading{
+        background-color: white;
+        font-family: "Times New Roman", Times, serif;
+        text-align:center ;
+        font-style:italic;
+    }
 
-<div class = "login">
+    body{
+       
+       background-image: url("https://i.pinimg.com/originals/ce/6a/6f/ce6a6f547ed740343a304abb4ef29ff7.gif");
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-size: 100% 100%;
+      }
+    
+</style>
+<div class = "heading">
+    <h1 style = "margin-left:10px;color:#6C3483">BakeryShop</h1>
+    <p style="margin-left:10px;color:#BB8FCE">Fresh Baked Goods Everyday</p>
+</div>
 
-    <h1>Login</h1>
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div  style="height:500px;border-radius: 1rem; background-color:white;">
+            <div class="card-body p-5 text-center">
+  
+              <div class="mb-md-5 mt-md-4 pb-5">
+  
+                <h3 class="fw-bold mb-2 text-uppercase" style="color:#6C3483">Login Page</h3>
+                <p  style="color:#BB8FCE">Please enter your username and password!</p>
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
+                <form method="POST" action="">
+                    {% csrf_token %}
                     
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+                        <div class="form-outline form-white mb-4">
+                            <label class="form-label" for="typeEmailX">Input Username</label>
+                            <input type="text" name="username" placeholder="Username" class="form-control">
+                            
+                        </div>
+        
+                        <div class="form-outline form-white mb-4">
+                            <label class="form-label" for="typePasswordX">Input Password</label>
+                            <input type="password" name="password" placeholder="Password" class="form-control">
+                        </div>
+                        <input class="btn login_btn" style="border-color: #6C3483; border-width: 3px;margin-top: 10px;" type="submit" value="Submit">
+                        <p style="margin-top: 20px;margin-bottom: 20px;">  Don't have an account yet? <a href="{% url 'main:register' %}" style ="text-align: center;color:#4A235A">Register Now</a></p>
+                </form>
+              
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
+  
     {% if messages %}
         <ul>
             {% for message in messages %}
-                <li>{{ message }}</li>
+                <li style="background-color:white ;">{{ message }}</li>
             {% endfor %}
         </ul>
     {% endif %}     
         
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+  
 
 </div>
 

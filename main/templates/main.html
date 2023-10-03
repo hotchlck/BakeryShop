@@ -1,76 +1,143 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+    
+    body{
+       
+       
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-size: 100% 100%;
+       text-align: center;
+       background-image: url("https://i.pinimg.com/originals/72/f3/01/72f301f54d40c83aa5e930bbab64cf1a.gif");
+    }
 
-    <h1 style="text-align: center;">BakeryShop Page</h1>
-    <hr>
-    <h3>Name: </h3>
-    <p>{{ name }} </p> 
-    <br>
-    <h3>Class: </h3>
-    <p>{{ class }}</p>
-    <br>
-    <h3>Product: </h3>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    .card {
+            
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        max-height:600px ;
+        border-radius: 20px;
+         
+           
+    }
+    .button-23 {
+        background-color: #FFFFFF;
+        border: 1px solid #783e15;
+        border-radius: 7px;
+        box-sizing: border-box;
+        color: #783e15;
+        cursor: pointer;
+        font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 20px;
+        outline: none;
+        padding: 4px 12px;
+        text-align: center;
+        text-decoration: none;
+        touch-action: manipulation;
+        transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+        user-select: none;
+        -webkit-user-select: none;
+        width: auto;
+        display: inline-block; 
+        position: relative;
+    }
+    .button-24{
+        background-color: #FFFFFF;
+        border: 4px solid #783e15;
+        border-radius: 12px;
+        box-sizing: border-box;
+        color: #783e15;
+        font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 20px;
+        padding: 15px 15px;
+    }
+    
+
+</style>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="font-weight:500px;color:#783e15;">BakeryShop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#" style="color:#482309">{{name}}</a>
+            <a class="nav-link active" aria-current="page" href="#" style="color:#482309">{{class}}</a>
+            <a class="nav-link" href="{% url 'main:logout' %}" style="color: #bc5b15;">Logout</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <h2 style="color:#6E2C00;text-align: center;padding-top: 35px;font-family: Times New Roman, Times, serif;font-style: italic;font-weight: 800;">Baked Goods </h2>
     <p>{{item}}</p>
     
-  
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Amount</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Type</th>
-        <th>Date Added</th>
-    </tr>
-
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-    {% for item in items %}
-        <tr>
-            <td>{{item.name}}</td>
-            <td>
-                <div class="amount-container">
+        <div class="container">
+        {% for item in items %}
+            <div style="margin-top:5px;padding: 10px;  padding-bottom: 8px;" class="card">
+                <img style="max-height:300px;border-radius:20px;max-width: 500px;"class="card-img" src={{item.image_url}} alt="Product Image">
+                <h3 style="padding-top:10px;font-size: 24px; font-weight: 700;color:#783e15;" >{{item.name}}</h4>
+                <p style="padding-top: 10px; font-size:19px; font-weight: 500;color:#482309" > {{item.price}}</p>
+                <p style="font-size:16px; font-weight: 300;color: #77390d;" > {{item.description}}</p>
+                <div class="amount-container" style="margin-top: 10px;">
                     <a href="{% url 'main:minus_item' item.id %}">
-                        <button>-</button>
+                        <button class="button-23" style="margin-right: 3px;">-</button>
                     </a>
-                    <span>{{item.amount}}</span>
+                    <span style="font-size: 12px;color:#482309;font-weight: 200px;">{{item.amount}}</span>
                     <a href="{% url 'main:add_item' item.id %}">
-                        <button>+</button>
+                        <button class="button-23" style="margin-left:3px ;">+</button>
                     </a>        
                 </div>
-            </td>
-            <td>{{item.description}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.type}}</td>
-            <td>{{item.date_added}}</td>
-            <td>
-            <a href="{% url 'main:remove_item' item.id %}">
-                <button>
-                    Remove Item
-                </button>
-            </a>
-            </td>
-        </tr>
-    {% endfor %}
-</table>
+                <div class="edit" style="justify-content: space-between;padding-top: 30px;">
+                    
+                    <a href="{% url 'main:edit_product' item.id %}">
+                        <button class="button-23" style="margin-right :3px; ">
+                            Edit
+                        </button>
+                    </a>
+                
+                    <a href="{% url 'main:remove_item' item.id %}">
+                        <button class="button-23" style="margin-left: 3px;">
+                            Remove Item
+                        </button>
+                    </a>
+                   
+                </div>
+                <p style="padding-top:20px; font-size:10px; font-weight: 450;color:#783e15;" > {{item.date_added}}</p>
+                
+            </div>
+        
+        {% endfor %}
+        </div>
 
-<br />
+    
+
 
 <a href="{% url 'main:create_product' %}">
-    <button>
+    <button class="button-24 "style="margin-top:14px;margin-bottom:10px;" >
         Add New Item
     </button>
 </a>
+<h5 style="margin-top:12px;color:#4b2003;font-family: Times New Roman, Times, serif;font-weight: bold;">You Added {{total_items}} Baked Goods At The Bakery</h5>
 
-<hr>
 
-<h4>Last Login Session: {{ last_login }}</h4>
-<h4>You have saved {{total_items}} items in this application</h4>
+<h5 style="margin-top:12px;color:#4b2003;font-family: Times New Roman, Times, serif;font-weight: bold;">Last Login Session: {{ last_login }}</h5>
 
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
+
 
     {% endblock content %}
