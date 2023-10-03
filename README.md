@@ -611,57 +611,57 @@ Apabila cookie digunakan ketika user tidak sedang mengakses data yang sensitif, 
 # TUGAS 5 
 ## Jenis - jenis selector dan waktu yang tepat untuk menggunakannya. 
    - Tag Selector
-     Selector yang digunakan untuk memilih semua elemen HTML yang sesuai dengan jenis tag yang dicantumkan. Selector ini dapat digunakan apabila ingin menerapkan design yang sama kepada semua          elemen yang memiliki tag sama. 
-     Contoh : 
-     ```
-     h1 {
-        color: black;
-     }
-     ```
-     Pada contoh di atas, selector memilih semua elemen ```<h1>``` dan mengatur warnanya menjadi hitam.
+     - Selector yang digunakan untuk memilih semua elemen HTML yang sesuai dengan jenis tag yang dicantumkan. Selector ini dapat digunakan apabila ingin menerapkan design yang sama kepada semua          elemen yang memiliki tag sama. 
+       Contoh : 
+       ```
+       h1 {
+       color: black;
+       }
+       ```
+       Pada contoh di atas, selector memilih semua elemen ```<h1>``` dan mengatur warnanya menjadi hitam.
    - Class Selector
-     Selector yang digunakan untuk memilih elemen HTML bedasarkan atribut ```class``` yang dicantumkan. 
-     Contoh : 
-     ```
-     <style>
-      .card (
-        background-color: white;
-      )
-     </style>
-
-     <h2 class="card">List Items</h2>
-     ```
-     Pada contoh, selector memilih semua elemen yang diberikan ```.card``` sebagai attribute ```class```-nya. 
+     - Selector yang digunakan untuk memilih elemen HTML bedasarkan atribut ```class``` yang dicantumkan. 
+       Contoh : 
+       ```
+       <style>
+           .card (
+           background-color: white;
+         )
+        </style>
+   
+       <h2 class="card">List Items</h2>
+       ```
+       Pada contoh, selector memilih semua elemen yang diberikan ```.card``` sebagai attribute ```class```-nya. 
    - ID Selector
-     Selector yang digunakan untuk memilih elemen HTML sesuai ```id``` yang telah diberikan. ```id``` bersifat unik dan hanya boleh digunakan pada satu elemen. Selector ini cocok digunakan             apabila ingin menerpakan design untuk elemen tunggal yang unik. 
-     Contoh : 
-     ```
-     #footer {
-      background: teal;
-      color: white;
-     }
-     <h1 id="footer">Selamat Tinggal</h1>
-    
-     ```
+     - Selector yang digunakan untuk memilih elemen HTML sesuai ```id``` yang telah diberikan. ```id``` bersifat unik dan hanya boleh digunakan pada satu elemen. Selector ini cocok digunakan             apabila ingin menerpakan design untuk elemen tunggal yang unik. 
+       Contoh : 
+       ```
+       #footer {
+         background: teal;
+         color: white;
+       }
+       <h1 id="footer">Selamat Tinggal</h1>
+       
+       ```
    - Attribute Selector
-     Selector yang digunakan untuk memilih elemen HTML bedasarkan ```attribute``` yang dicantumkan.
-     Contoh : 
-     ```
-     input[type=text] {
-      padding: 10px;
-      border: 1px solid cyan;
-     }
-     <input type="text" placeholder="ketik sesuatu..." />
-     ```
+     - Selector yang digunakan untuk memilih elemen HTML bedasarkan ```attribute``` yang dicantumkan.
+       Contoh : 
+       ```
+       input[type=text] {
+         padding: 10px;
+         border: 1px solid cyan;
+       }
+       <input type="text" placeholder="ketik sesuatu..." />
+       ```
    - Universal Selector
-     Selector yang digunakan untuk memilih semua elemen HTML pada jangkauan tertentu. Dapat digunakan saat ingin menerapkan design yang sama ke semua elemen HTML. 
-     Contoh : 
-     ```
-     * {
-     color: red;
-     }
-     ```
-     Pada contoh, semua elemen akan berwarna merah. 
+     - Selector yang digunakan untuk memilih semua elemen HTML pada jangkauan tertentu. Dapat digunakan saat ingin menerapkan design yang sama ke semua elemen HTML. 
+       Contoh : 
+       ```
+       * {
+       color: red;
+       }
+       ```
+       Pada contoh, semua elemen akan berwarna merah. 
 
 ## HTML5 Tag
    1. ```<p>``` 
@@ -707,9 +707,9 @@ Apabila cookie digunakan ketika user tidak sedang mengakses data yang sensitif, 
 
 ## Perbedaan antara margin dan padding 
    - Margin
-     Merupakan ruang di sekitar elemen yang berada di luar batas elemen dan digunakan untuk mengontrol jarak anatar elemen tersebut dengan elemen - elemen disekitarnya. Margin juga tidak memiliki      latar -  belakang atau wrana, sehingga elemen di belakang margin juga masih bisa dilihat melalui margin. 
+     - Merupakan ruang di sekitar elemen yang berada di luar batas elemen dan digunakan untuk mengontrol jarak anatar elemen tersebut dengan elemen - elemen disekitarnya. Margin juga tidak               memiliki latar -  belakang atau wrana, sehingga elemen di belakang margin juga masih bisa dilihat melalui margin. 
    - Padding
-     Merupakan ruang yang berada di antara konten elmeen dan batasnya. Padding digunakan untuk mengontrol jarak elemen dan batas elemen tersebut. Padding memiliki latar belakang dan warna dengan       elemen yang berkaitan sehingga tidak ada elemen yang bisa terlihat melalui padding. 
+     - Merupakan ruang yang berada di antara konten elmeen dan batasnya. Padding digunakan untuk mengontrol jarak elemen dan batas elemen tersebut. Padding memiliki latar belakang dan warna              dengan elemen yang berkaitan sehingga tidak ada elemen yang bisa terlihat melalui padding. 
 
 ## Perbedaan antara framewrok CSS Tailwind dan Bootstrap
    - Sisi Desain
