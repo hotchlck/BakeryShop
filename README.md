@@ -726,10 +726,109 @@ Apabila cookie digunakan ketika user tidak sedang mengakses data yang sensitif, 
      - Bootstrap 
        Karena berisi banyak fitur dan komponen yang siap pakai, ukuran file Bootstrap lebih besar. 
      - Tailwind 
-       Tailwind dirancang untuk memiliki ukuran file yang lebih ringan. Namun, ukuran file CSS dapat meningkat ketika menggunakan banyak class utilitas di dalam kode. 
+       Tailwind dirancang untuk memiliki ukuran file yang lebih ringan. Namun, ukuran file CSS dapat meningkat ketika menggunakan banyak class utilitas di dalam kode.
 
+## Implementasi Checklist
+1. Menambahkan Bootsrap ke Aplikasi
+   - Membuka berkas ```base.html``` yang terdapat di direktori ```templates``` dan menambahkan tag ```<meta name="viewport">```
+   - Menambahkan Bootstrap CSS dan JS
+     ```
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"            crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+J4jsl5c9zdLKaUk5Ae5f5b1bw6AUn5f5v8FZJoMxm6f5cH1" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"                         crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"                             crossorigin="anonymous"></script>
+     ```
+2. Menambahkan Fitur edit dan Fungsi menghapus product
+   - Membuka berkas ```views.py``` yang berada di subdirektori main.
+   - Membuat fungsi edit_product
+     ```
+     def edit_product(request, id): 
+     product = Product.objects.get(pk = id)
+     form = ProductForm(request.POST or None, instance=product)
 
+     if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
 
+     context = {'form': form}
+     return render(request, "edit_product.html", context)
+     ```
+   - Membuat berkas HTML baru dengan nama edit_product.html pada subdirektori tamplates yang terdapat di direktori main
+     ```
+     {% extends 'base.html' %}
 
-   
-
+      {% load static %}
+      
+      {% block content %}
+      
+      <h1>Edit Product</h1>
+      
+      <form method="POST">
+          {% csrf_token %}
+          <table>
+              {{ form.as_table }}
+              <tr>
+                  <td></td>
+                  <td>
+                      <input type="submit" value="Edit Product"/>
+                  </td>
+              </tr>
+          </table>
+      </form>
+      
+      {% endblock %}
+     ```
+   - Membuka berkas ```urls.py``` yang ada pada direktori ```main``` dan import fungsi ```edit_product``` yang sudah dibuat serta menambahkan path url di ```urlpatterns```
+     ```
+     from main.views import edit_product
+     ...
+     path('edit-product/<int:id>', edit_product, name='edit_product'),
+     ...
+     ```
+   - Menambahkan tombol edit produk pada berkas ```main.html``` yang berada di subdirektori ```templates``` di direktori ```main```
+     ```
+     ...
+      <tr>
+          ...
+          <td>
+              <a href="{% url 'main:edit_product' product.pk %}">
+                  <button>
+                      Edit
+                  </button>
+              </a>
+          </td>
+      </tr>
+      ...
+     ```
+   - Dalam berkas ```views.py```, buat fungsi hapus produk
+     ```
+     def delete_product(request, id):
+       product = Product.objects.get(pk = id)
+       product.delete()
+       return HttpResponseRedirect(reverse('main:show_main'))
+     ```
+   - Menambahkan import serta path url dalam berkas ```urls.py```
+     ```
+     from main.views import delete_product
+     ...
+     path('delete/<int:id>', delete_product, name='delete_product'),
+     ...
+     ```
+   - Menambahkan tombol hapus produk pada berkas ```main.html```
+     ```
+      <a href="{% url 'main:delete_product' product.pk %}">
+              <button>
+                  Delete
+              </button>
+          </a>
+     ```
+3. Menambahkan navbar dengan menggunakan template Bootstrap
+4. Menghias halaman web masing - masing
+                
+           
+      
+      
+      
+      
+         
+      
