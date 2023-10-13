@@ -1,4 +1,5 @@
 # BakeryShop - Fresh Baked Goods Everyday!
+[Link BakeryShop App](http://salma-kurnia-tugas.pbp.cs.ui.ac.id.)
 
 # TUGAS 2
 ## Pembuatan App BakeryShop
