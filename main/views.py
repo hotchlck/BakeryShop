@@ -1,5 +1,5 @@
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -15,6 +15,8 @@ from main.forms import ProductForm
 from django.urls import reverse
 from main.models import item
 from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -101,22 +103,65 @@ def minus_item(request, id_item):
         messages.info(request, f'Tidak dapat mengurangi jumlah produk! Total {product.name} berjumlah 0 ')
     return redirect('main:show_main')
 
-def edit_product(request, id_item):
-    # Get product berdasarkan ID
-    product = item.objects.get(pk = id_item)
-
-    # Set product sebagai instance dari form
-    form = ProductForm(request.POST or None, instance=product)
-
-    if form.is_valid() and request.method == "POST":
-        # Simpan form dan kembali ke halaman awal
-        form.save()
-        return HttpResponseRedirect(reverse('main:show_main'))
-
-    context = {'form': form}
-    return render(request, "edit_product.html", context)
-
 def remove_item(request, id_item):
     product = get_object_or_404(item, pk=id_item, user=request.user)
     product.delete()
     return redirect('main:show_main')
+
+def get_product_json(request):
+    product = item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product))
+
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        image_url = request.POST.get("image_url")
+        user = request.user
+
+        new_product = item(name=name, price=price, amount=amount ,description=description, image_url=image_url ,user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+    return HttpResponseNotFound()
+
+@login_required(login_url='login/')
+@csrf_exempt
+def increment_ajax(request):
+    if request.method == 'POST':
+        pk = json.loads(request.body).get('pk')
+        product = item.objects.get(pk=pk, user=request.user)
+        product.amount += 1
+        product.save()
+        return HttpResponse(b"OK", status=200)
+    
+    return HttpResponseNotFound()
+
+@login_required(login_url='login/')
+@csrf_exempt 
+def decrement_ajax(request):
+    if request.method == 'POST':
+        pk = json.loads(request.body).get('pk')
+        product = item.objects.get(pk=pk, user=request.user)
+        if (product.amount > 0):
+            product.amount -= 1
+            product.save()
+        else: # jika stok produk sudah habis = delete
+            product.delete()
+        return HttpResponse(b"OK", status=200)
+    
+    return HttpResponseNotFound()
+
+@login_required(login_url='login/')
+@csrf_exempt
+def delete_ajax(request):
+    if request.method == 'POST':
+        pk = json.loads(request.body).get('pk')
+        product = item.objects.get(pk=pk, user=request.user)
+        product.delete()
+        return HttpResponse(b"OK", status=200)
+    
+    return HttpResponseNotFound()
