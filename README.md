@@ -858,8 +858,237 @@ Apabila cookie digunakan ketika user tidak sedang mengakses data yang sensitif, 
      - Ukuran lebih berat karena ada library tambahan
      - Kinerja lebih lambat karena memrlukan inisasi library jQuery
      - Sintaks lebih pendek dan mudah digunakan
-     
-   
+
+## Implementasi Checklist
+   1. Mengimplementasikan AJAX GET
+      - Menambahkan function ke berkas ```views.py```
+        ```
+        def get_product_json(request):
+        product = item.objects.filter(user=request.user)
+        return HttpResponse(serializers.serialize('json', product))
+        ```
+      - Menambahkan import function dan path url function ```get_product_json``` pada berkas ```urls.py```
+        ``` from main.views import get_product_json```
+        ```
+        ...
+        path('get-product/', get_product_json, name='get_product_json'),
+        ...
+        ```
+      - Pada berkas ```main.html``` membuat tag ```<script></scripts>``` untuk menyimpan fungsi javaScripts
+      - Menambahkan function ```getProducts``` untuk mengambil data user
+        ```
+        async function getProducts() {
+            return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+        }
+        ```
+   2. Mengimplementasikan AJAX POST
+      - Membuat modal yang akan dibuka
+        ```
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="price" name="price"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="col-form-label">Amounts:</label>
+                            <input type="number" class="form-control" id="amount" name="amount"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image_url" class="col-form-label">Image Url:</label>
+                            <input type="text" class="form-control" id="image_url" name="image_url"></input>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add_ajax" data-bs-dismiss="modal">Add Product</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        ```
+      - Membuat function pada ```views.py``` untuk menambahkan item pada database dan function-function untuk merubah jumlah item dan menghapus item pada setiap cards.
+        ```
+        @csrf_exempt
+         def add_product_ajax(request):
+             if request.method == 'POST':
+                 name = request.POST.get("name")
+                 price = request.POST.get("price")
+                 amount = request.POST.get("amount")
+                 description = request.POST.get("description")
+                 image_url = request.POST.get("image_url")
+                 user = request.user
+         
+                 new_product = item(name=name, price=price, amount=amount ,description=description, image_url=image_url ,user=user)
+                 new_product.save()
+         
+                 return HttpResponse(b"CREATED", status=201)
+             return HttpResponseNotFound()
+         
+         @login_required(login_url='login/')
+         @csrf_exempt
+         def increment_ajax(request):
+             if request.method == 'POST':
+                 pk = json.loads(request.body).get('pk')
+                 product = item.objects.get(pk=pk, user=request.user)
+                 product.amount += 1
+                 product.save()
+                 return HttpResponse(b"OK", status=200)
+             
+             return HttpResponseNotFound()
+
+         @login_required(login_url='login/')
+         @csrf_exempt 
+         def decrement_ajax(request):
+             if request.method == 'POST':
+                 pk = json.loads(request.body).get('pk')
+                 product = item.objects.get(pk=pk, user=request.user)
+                 if (product.amount > 0):
+                     product.amount -= 1
+                     product.save()
+                 else: # jika stok produk sudah habis = delete
+                     product.delete()
+                 return HttpResponse(b"OK", status=200)
+             
+             return HttpResponseNotFound()
+
+         @login_required(login_url='login/')
+         @csrf_exempt
+         def delete_ajax(request):
+             if request.method == 'POST':
+                 pk = json.loads(request.body).get('pk')
+                 product = item.objects.get(pk=pk, user=request.user)
+                 product.delete()
+                 return HttpResponse(b"OK", status=200)
+             
+             return HttpResponseNotFound()
+      - Menambahkan import function dan membuat path url di berkas ```urls.py```
+        ```from main.views import add_product_ajax, decrement_ajax, increment_ajax,delete_ajax```
+        ```
+        ...
+        path('create-product-ajax/', add_product_ajax, name='add_product_ajax'),
+        path('decrement_ajax/', decrement_ajax, name="decrement_ajax"),
+        path('increment_ajax/', increment_ajax, name="increment_ajax"),
+        path('delete_ajax/', delete_ajax, name='delete_ajax'),
+        ...
+        ```
+      - Menambahkan functions dengan modal yang sudah dibuat dengan menambahkan function pada tag ```<script></script>``` di berkas ```main.html```
+        ```
+        function addProduct() {
+            fetch("{% url 'main:add_product_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshProducts)
+
+            document.getElementById("form").reset()
+            return false
+        }
+
+        function incrementAJAX(pk) {
+            fetch(`{% url 'main:increment_ajax' %}`, {
+                method: "POST",
+                body: JSON.stringify({
+                    "pk":pk
+                })
+            }).then(refreshProducts)
+
+            return false
+        }
+
+        function decrementAJAX(pk) {
+            fetch(`{% url 'main:decrement_ajax' %}`, {
+                method: "POST",
+                body: JSON.stringify({
+                    "pk":pk
+                })
+            }).then(refreshProducts)
+
+            return false
+        }
+
+        function deleteAJAX(pk) {
+            fetch(`{% url 'main:delete_ajax' %}`,  {
+                method: "POST",
+                body: JSON.stringify({
+                    "pk":pk
+                })
+            }).then(refreshProducts)
+
+            return false
+        }
+        
+        document.getElementById("button_add_ajax").onclick = addProduct
+        ```
+      - Menambahkan function ```refreshProduct`` agar perubahan pada product dapat terjadi secara aynchronous dan menyisipkan cards yang sudah dibuat kedalam function tersebut
+        ```
+        async function refreshProducts() {
+            document.getElementById("container").innerHTML = "";
+            const products = await getProducts()
+            let htmlString = ``
+            var counter = 1
+            var size = Object.keys(products).length;
+            products.forEach((item) => {
+                htmlString += `\n
+                <div style="margin-top:5px;padding: 10px;  padding-bottom: 8px;" class="card">
+                <img style="max-height:300px;border-radius:20px;max-width: 500px;"class="card-img" src="${item.fields.image_url}" alt="Product Image"/>
+                <h3 style="padding-top:10px;font-size: 24px; font-weight: 700;color:#552468;" >${item.fields.name}</h3>
+                <p style="padding-top: 10px; font-size:19px; font-weight: 500;color:#6C3483" > ${item.fields.price}</p>
+                <p style="font-size:16px; font-weight: 300;color: #BB8FCE;" > ${item.fields.description}</p>
+                <div class="amount-container" style="margin-top: 10px;">
+                    
+                        <button class="button-23" style="margin-right: 3px;" method="POST" onclick="decrementAJAX(${item.pk})">-</button>
+                
+                    <span style="font-size: 12px;color:#552468;font-weight: 200px;">${item.fields.amount}</span>
+                   
+                        <button class="button-23" style="margin-left:3px ;" method="POST" onclick="incrementAJAX(${item.pk})">+</button>
+                           
+                </div>
+                <div class="edit" style="justify-content: space-between;padding-top: 30px;" >
+                    
+                        <button class="button-23" style="margin-left: 3px;" method="POST" onclick="deleteAJAX(${item.pk})">
+                            Remove Item
+                        </button>
+                  
+                </div>
+                <p style="padding-top:20px; font-size:10px; font-weight: 450;color:#552468;" > ${item.fields.date_added}</p>
+                
+            </div>`
+        
+            })
+
+            document.getElementById("container").innerHTML = htmlString
+        }
+
+        refreshProducts()
+        ```
+   3. Melakukan add, commit, push
+   4. Melakukan Deployment
+        
+        
+
+              
+        
+
+        
+                 
+
                 
            
       
