@@ -823,7 +823,43 @@ Apabila cookie digunakan ketika user tidak sedang mengakses data yang sensitif, 
           </a>
      ```
 3. Menambahkan navbar dengan menggunakan template Bootstrap
-4. Menghias halaman web masing - masing
+
+# TUGAS 6
+## Perbedaan Synchronous dan Asynchronous Programming
+   - Synchronus Programming :
+     - Lebih mudah untuk ditulis dan dipahami karena eksekusi program bersifat linear
+     - Task dieksekusi secara blocking dimana task dieksekusi satu per satu dan setiap task harus selesai terlebih dahulu sebelum task selanjutnya dijalankan
+     - Ketika sebuah task menghadapi operasi yang mungkin memerlukan waktu, ia menunggu operasi tersebut selesai sebelum melanjutkan sehingga terkadang program dengan synchronus programming       
+     kurang efisien
+   - Aynchronous Programming :
+     - Melibatkan penggunaan callback, promises, atau sintaksis async/await untuk menentukan apa yang harus terjadi setelah operasi selesai, dibanding menunggu hingga selesai
+     - Task dieksekusi secara non blocking dimana task dieksekusi secara bersamaan (task dapat berjalan tanpa menunggu task lainnya selesai)
+     - Memungkinkan untuk menjalankan beberapa task pada waktu yang bersamaan berguna untuk program yang akan lebih efisien jika tidak menunggu suatu task selesai terlebih dahulu
+
+## Paradigma Event Programming
+   Paradigma event-driven programming adalah pendekatan pemrograman yang berfokus pada pendelegasian event ke event handler yang cocok. Event handler adalah fungsi yang merespon event dan 
+   melakukan sesuatu. Salah satu contoh penerapan dari paradigma event-driven programming pada tugas ini adalah pada saat menampilkan form add item dengan menerapkan AJAX, pada kode ``` 
+   document.getElementById("button_add").onclick = addItem```, tombol dengan id "button_add" akan dipasangkan dengan suatu event handler .onclick, sehingga pada saat tombol tersebut ditekan, 
+   program baru akan memanggil fungsi javaScript  addItem yang akan menampilkan form add item secara asynchronous dan melakukan refresh catalog item secara asynchronous ketika form tersebut di 
+   submit.
+
+## Penerapan Aynchronous Proggraming pada Ajax 
+   Penerapan asynchronous programming pada AJAX adalah membiarkan web melakukan HTTP request kepada server dan menerima data tanpa menghalangi pelaksanaan tugas lainnya, sehingga memungkinkan 
+   halaman web untuk mengirim dan menerima data dari server tanpa memuat ulang seluruh halaman.
+
+## Perbandingan Fetch API dengan library jQuery
+   - Fetch API
+     - Merupakan bagian dari standar JavaScript dan dapat berjalan di semua browser modern
+     - Ukuran lebih ringan karena merupakan bagian dari JavaScript modern
+     - Kinerja lebih cepat karena bekerja langsung dengan promise dan response objek
+     - Memerlukan lebih banyak penulisan kode, terutama untuk menangani respons HTTP
+   - jQuery
+     - Dapat berjalan di banyan browser lama, namun perlu diperhatikan versi jQuery yang digunakan
+     - Ukuran lebih berat karena ada library tambahan
+     - Kinerja lebih lambat karena memrlukan inisasi library jQuery
+     - Sintaks lebih pendek dan mudah digunakan
+     
+   
                 
            
       
