@@ -214,11 +214,8 @@
 
             return false
         }
-        
         document.getElementById("button_add_ajax").onclick = addProduct
-
 </script>
-
 
 <a href="{% url 'main:create_product' %}">
     <button class="button-24 "style="margin-top:14px;margin-bottom:10px;" >
@@ -230,9 +227,5 @@
 </button>
 <h5 style="margin-top:12px;color:#6C3483;font-family: Times New Roman, Times, serif;font-weight: bold;">You Added {{total_items}} Baked Goods At The Bakery</h5>
 
-
 <h5 style="margin-top:12px;color:#6C3483;font-family: Times New Roman, Times, serif;font-weight: bold;">Last Login Session: {{ last_login }}</h5>
-
-
-
-    {% endblock content %}
+  {% endblock content %}
